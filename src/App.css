@@ -233,6 +233,7 @@ header {
   width: 100%;
   border: 1px solid #d0d0d0;
   border-radius: 1rem;
+  height: max-content;
 }
 .rgl-map-box {
   width: 100%;
@@ -526,13 +527,22 @@ header {
   align-items: center;
   gap: 0.5rem;
 }
-.rsr-opt h4 span {
+.rsr-opt h4 select {
   color: var(--black);
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  font-size: 1.85rem;
+  font-weight: 500;
   margin: 0;
+  border: unset;
+  box-shadow: unset;
+  outline: unset;
+}
+.rsr-opt h4 select:focus {
+  border: unset;
+  box-shadow: unset;
+  outline: unset;
 }
 .rsr-flex-box {
   margin: 2rem;
@@ -913,6 +923,7 @@ footer {
   font-weight: 400;
   margin: 0;
   text-wrap: nowrap;
+  cursor: pointer;
 }
 .footer-copyright {
   display: flex;
@@ -927,4 +938,48 @@ footer {
   color: var(--white);
   font-weight: 500;
   margin: 0;
+}
+
+/* RESULT MAP  */
+.rsr-flex-box.rsrfm {
+  margin-top: 0;
+}
+.rsr-map-box {
+  width: 100%;
+  position: relative;
+}
+.rsr-map-box img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.bigmap-bottom-box {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 3rem;
+}
+.bmb-card {
+  background-color: var(--white);
+  border-radius: 1rem;
+  padding: 0.75rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+.bmb-card img {
+  width: 100px;
+  height: auto;
+  object-fit: contain;
+}
+.bmb-card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.25rem;
 }

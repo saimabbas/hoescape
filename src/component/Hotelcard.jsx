@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Hotel1 from "../assets/img/hotel1.png";
 import Hotel2 from "../assets/img/hotel2.jpg";
 import Hotel3 from "../assets/img/hotel3.jpg";
-import Hotel4 from "../assets/img/hotel4.jpg";
+import Hotel4 from "../assets/img/hotel2.jpg";
 import HotelMini1 from "../assets/img/hotelmini1.png";
 import HotelMini2 from "../assets/img/hotelmini2.png";
 import HotelMini3 from "../assets/img/hotelmini3.png";
