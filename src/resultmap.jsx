@@ -343,7 +343,77 @@ const Resultmap = () => {
                             <BsFillStarFill />
                             <BsFillStarFill />
                           </div>
-                          <div>
+                          <div className="bmbc-last">
+                            <h4>2.250€</h4>
+                            <span>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="40"
+                                height="8"
+                                viewBox="0 0 40 8"
+                                fill="none"
+                              >
+                                <path
+                                  d="M39.8985 3.99996L34.1418 0.674965V3.42996L0.101807 3.99996L34.1418 4.56996V7.32496L39.8985 3.99996Z"
+                                  fill="black"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="bmb-card">
+                        <img src={Hotel7} alt="" />
+                        <div className="bmb-card-right">
+                          <h6>
+                            <BsCalendar3 />
+                            Dal <b>23/04 </b> Al <b>29/04</b>
+                          </h6>
+                          <h3>Hotel Garden</h3>
+                          <h5>
+                            <BsGeoAlt />
+                            Trentino, Marilleva 900
+                          </h5>
+                          <div className="rsrf-star-1">
+                            <BsFillStarFill />
+                            <BsFillStarFill />
+                          </div>
+                          <div className="bmbc-last">
+                            <h4>2.250€</h4>
+                            <span>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="40"
+                                height="8"
+                                viewBox="0 0 40 8"
+                                fill="none"
+                              >
+                                <path
+                                  d="M39.8985 3.99996L34.1418 0.674965V3.42996L0.101807 3.99996L34.1418 4.56996V7.32496L39.8985 3.99996Z"
+                                  fill="black"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="bmb-card">
+                        <img src={Hotel7} alt="" />
+                        <div className="bmb-card-right">
+                          <h6>
+                            <BsCalendar3 />
+                            Dal <b>23/04 </b> Al <b>29/04</b>
+                          </h6>
+                          <h3>Hotel Garden</h3>
+                          <h5>
+                            <BsGeoAlt />
+                            Trentino, Marilleva 900
+                          </h5>
+                          <div className="rsrf-star-1">
+                            <BsFillStarFill />
+                            <BsFillStarFill />
+                          </div>
+                          <div className="bmbc-last">
                             <h4>2.250€</h4>
                             <span>
                               <svg
