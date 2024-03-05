@@ -221,6 +221,7 @@ header {
 /* GRID SECTION  */
 .result-grid-section {
   width: 100%;
+  margin-bottom: 10rem;
 }
 .res-grid-cont {
   display: grid;
@@ -233,9 +234,35 @@ header {
   border: 1px solid #d0d0d0;
   border-radius: 1rem;
 }
+.rgl-map-box {
+  width: 100%;
+  position: relative;
+  padding: 1.75rem;
+  border-bottom: 1px solid #d4d4d4;
+}
+.rgl-map-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.rgl-map-box button {
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--black);
+  font-size: 1.35rem;
+  font-weight: 500;
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  border: unset;
+}
 .rgl-accordian {
   width: 100%;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
 }
 .rgl-acco-head {
   display: flex;
@@ -278,11 +305,14 @@ header {
 .rgl-acco-h-right .acco-ser-input svg {
   font-size: 1.5rem;
 }
+.rgl-accor-open.rglah-box {
+  border-bottom: 0 !important;
+}
 .rgl-accor-open {
   width: 100%;
   margin: 2.5rem 0 0 0;
   border-bottom: 1px solid #d4d4d4;
-  padding: 0 1.75rem 2.5rem 1.75rem;
+  padding: 0 1.75rem 1.75rem 1.75rem;
 }
 .rating-grid {
   width: 100%;
@@ -742,5 +772,155 @@ header {
   font-size: 2rem;
   color: var(--main);
   font-weight: 600;
+  margin: 0;
+}
+
+/* CTA SECTION  */
+.cta-section {
+  width: 100%;
+  position: relative;
+  padding: 10rem 0 0 0;
+  margin: 0 0 -20rem 0;
+}
+.cta-gradient {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #f5fffe 47.71%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  height: 230px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.cta-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.cta-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  width: 55%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.cta-content h4 {
+  font-size: 5.5rem;
+  color: var(--white);
+  font-weight: 700;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* FOOTER  */
+footer {
+  background-color: var(--main);
+  width: 100%;
+  padding: 15rem 0 2rem 0;
+}
+.footer-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-gap: 20rem;
+  width: 100%;
+  padding: 5rem 0;
+}
+.footer-grid-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 5rem;
+  flex-direction: column;
+}
+.footer-grid-content img {
+  width: 330px;
+  height: auto;
+  object-fit: contain;
+}
+.footer-grid-content p {
+  font-size: 1.5rem;
+  color: var(--white);
+  font-weight: 400;
+  margin: 0;
+}
+.social-icons {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 3rem;
+}
+.social-icons svg {
+  font-size: 2rem;
+  color: var(--white);
+  cursor: pointer;
+}
+.fgc-middle-top {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-top: 3rem;
+}
+.fgc-middle-top h5 {
+  font-size: 3rem;
+  color: var(--white);
+  font-weight: 400;
+  margin: 0 0 3rem 0;
+}
+.fgc-middle-top a {
+  font-size: 1.5rem;
+  color: var(--white);
+  font-weight: 400;
+  margin: 0 0 0.75rem 0;
+}
+.fgc-middle-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 12rem;
+}
+.fgcm-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1.5rem;
+}
+.fgcm-content h6 {
+  font-size: 1.5rem;
+  color: var(--white);
+  font-weight: 400;
+  margin: 0;
+  text-wrap: nowrap;
+}
+.footer-copyright {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 3rem 0 2rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.46);
+  width: 100%;
+}
+.footer-copyright p {
+  font-size: 1.6rem;
+  color: var(--white);
+  font-weight: 500;
   margin: 0;
 }

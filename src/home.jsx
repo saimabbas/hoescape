@@ -1,29 +1,31 @@
 import React, { useState } from "react";
 import "./App.css";
-import Logo from "./assets/img/logo.png";
-import Hotel1 from "./assets/img/hotel1.png";
-import HotelMini1 from "./assets/img/hotelmini1.png";
+import map from "./assets/img/map.png";
+import FLogo from "./assets/img/footer-logo.png";
 import {
-  BsCalendar3,
-  BsCheckCircleFill,
   BsChevronDown,
   BsChevronUp,
   BsCupHotFill,
   BsEnvelope,
   BsFillStarFill,
   BsFillTelephoneFill,
-  BsGeoAlt,
   BsSearch,
   BsWifi,
 } from "react-icons/bs";
 import Hotelcard from "./component/Hotelcard";
+import Header from "./component/header";
+import Footer from "./component/footer";
+import Searchbar from "./component/Searchbar";
+import CTA from "./component/CTA";
+import Topbar from "./component/Topbar";
 
 const Page = () => {
-  const [isAccor1Visible, setAccor1Visible] = useState(false);
-  const [isAccor2Visible, setAccor2Visible] = useState(false);
-  const [isAccor3Visible, setAccor3Visible] = useState(false);
-  const [isAccor4Visible, setAccor4Visible] = useState(false);
-  const [isAccor5Visible, setAccor5Visible] = useState(false);
+  const [isAccor1Visible, setAccor1Visible] = useState(true);
+  const [isAccor2Visible, setAccor2Visible] = useState(true);
+  const [isAccor3Visible, setAccor3Visible] = useState(true);
+  const [isAccor4Visible, setAccor4Visible] = useState(true);
+  const [isAccor5Visible, setAccor5Visible] = useState(true);
+  const [isAccor6Visible, setAccor6Visible] = useState(true);
 
   const toggleAccor1 = () => {
     setAccor1Visible(!isAccor1Visible);
@@ -40,60 +42,18 @@ const Page = () => {
   const toggleAccor5 = () => {
     setAccor5Visible(!isAccor5Visible);
   };
+  const toggleAccor6 = () => {
+    setAccor6Visible(!isAccor6Visible);
+  };
   return (
     <div className="hoescape">
       <main className="main-page">
         {/* TOP BAR  */}
-        <div className="top-bar">
-          <a href="#">
-            <BsEnvelope />
-          </a>
-          <a href="#">
-            <BsFillTelephoneFill />
-          </a>
-        </div>
+        <Topbar />
         {/* HEADER  */}
-        <header>
-          <div className="box-lg">
-            <div className="header-cont">
-              <div className="header-left">
-                <img src={Logo} alt="" />
-              </div>
-              <div className="header-right">
-                <a href="#">
-                  DESTINAZIONI TURISTICHE <BsChevronDown />
-                </a>
-                <a href="#">
-                  PACCHETTI EVENTO <BsChevronDown />
-                </a>
-                <a href="#">proponi la tua struttura</a>
-                <button className="main-btn">Accedi</button>
-              </div>
-            </div>
-          </div>
-        </header>
+        <Header />
         {/* SEARCH BOX  */}
-        <div className="search-text-box">
-          <div className="box">
-            <div className="search-text-content">
-              <h6>
-                Dove vuoi andare? <span>Milano</span>
-              </h6>
-              <h6>
-                Check In <span>26/04/2024</span>
-              </h6>
-              <h6>
-                Check Out <span>26/04/2024</span>
-              </h6>
-              <h6>
-                Stanze <span>2 Stanze, 3 adulti</span>
-              </h6>
-              <div className="search-box">
-                <BsSearch />
-              </div>
-            </div>
-          </div>
-        </div>
+        <Searchbar />
         {/* LOGIN BUTTON */}
         <div className="login-opt-box">
           <div className="box-lg">
@@ -108,6 +68,10 @@ const Page = () => {
           <div className="box-lg">
             <div className="res-grid-cont">
               <div className="res-grid-left">
+                <div className="rgl-map-box">
+                  <img src={map} alt="" />
+                  <button className="map-btn">Vedi Mappa</button>
+                </div>
                 <div className="rgl-accordian">
                   <div className="rgl-acco-head" onClick={toggleAccor1}>
                     <h6 className="font">Filtra per Stelle</h6>
@@ -292,18 +256,45 @@ const Page = () => {
                   )}
                 </div>
                 <div className="rgl-accordian">
+                  <div className="rgl-acco-head" onClick={toggleAccor6}>
+                    <h6 className="font">Trattamento</h6>
+                    {isAccor6Visible ? <BsChevronUp /> : <BsChevronDown />}
+                  </div>
+                  {isAccor6Visible && (
+                    <div className="rgl-accor-open">
+                      <div className="check-opt-num-box">
+                        <div className="check-opt-num">
+                          <div>
+                            <input type="checkbox" name="" id="" />
+                            <p>Camera e Colazione</p>
+                          </div>
+                          <span>(58)</span>
+                        </div>
+                        <div className="check-opt-num">
+                          <div>
+                            <input type="checkbox" name="" id="" />
+                            <p>Mezza Pensione Bevande Escluse</p>
+                          </div>
+                          <span>(42)</span>
+                        </div>
+                        <div className="check-opt-num">
+                          <div>
+                            <input type="checkbox" name="" id="" />
+                            <p>Pensione Completa Bevande Escluse</p>
+                          </div>
+                          <span>(3)</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+                <div className="rgl-accordian">
                   <div className="rgl-acco-head" onClick={toggleAccor5}>
                     <h6 className="font">In Evidenza</h6>
-                    <div className="rgl-acco-h-right">
-                      <div className="acco-ser-input">
-                        <BsSearch />
-                        <input type="text" placeholder="cerca" />
-                      </div>
-                      {isAccor5Visible ? <BsChevronUp /> : <BsChevronDown />}
-                    </div>
+                    {isAccor5Visible ? <BsChevronUp /> : <BsChevronDown />}
                   </div>
                   {isAccor5Visible && (
-                    <div className="rgl-accor-open">
+                    <div className="rgl-accor-open rglah-box">
                       <div className="rating-flex">
                         <div className="rating-f-card">
                           <input type="radio" name="abc" id="7" />
@@ -369,6 +360,10 @@ const Page = () => {
             </div>
           </div>
         </section>
+        {/* CTA SECTION  */}
+        <CTA />
+        {/* FOOTER  */}
+        <Footer />
       </main>
     </div>
   );
