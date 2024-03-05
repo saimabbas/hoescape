@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Hotel1 from "../assets/img/hotel1.png";
+import Hotel2 from "../assets/img/hotel2.jpg";
+import Hotel3 from "../assets/img/hotel3.jpg";
+import Hotel4 from "../assets/img/hotel4.jpg";
 import HotelMini1 from "../assets/img/hotelmini1.png";
+import HotelMini2 from "../assets/img/hotelmini2.png";
+import HotelMini3 from "../assets/img/hotelmini3.png";
+import HotelMini4 from "../assets/img/hotelmini4.png";
 import {
   BsCalendar3,
   BsCheckCircleFill,
@@ -9,16 +15,49 @@ import {
 } from "react-icons/bs";
 
 const Hotelcard = () => {
+  const [activeImg, setActiveImg] = useState("1");
   return (
     <div className="rsr-flex-card">
       <div className="rsr-flex-left">
         <div className="short-img-grid">
-          <img src={HotelMini1} alt="" />
-          <img src={HotelMini1} alt="" />
-          <img src={HotelMini1} alt="" />
-          <img src={HotelMini1} alt="" />
+          <img
+            className={activeImg == "1" ? "active-img" : null}
+            onClick={() => {
+              setActiveImg("1");
+            }}
+            src={HotelMini1}
+            alt=""
+          />
+          <img
+            className={activeImg == "2" ? "active-img" : null}
+            onClick={() => {
+              setActiveImg("2");
+            }}
+            src={HotelMini2}
+            alt=""
+          />
+          <img
+            className={activeImg == "3" ? "active-img" : null}
+            onClick={() => {
+              setActiveImg("3");
+            }}
+            src={HotelMini3}
+            alt=""
+          />
+          <img
+            className={activeImg == "4" ? "active-img" : null}
+            onClick={() => {
+              setActiveImg("4");
+            }}
+            src={HotelMini4}
+            alt=""
+          />
         </div>
-        <img src={Hotel1} alt="" />
+
+        {activeImg == "1" ? <img src={Hotel1} alt="" /> : null}
+        {activeImg == "2" ? <img src={Hotel2} alt="" /> : null}
+        {activeImg == "3" ? <img src={Hotel3} alt="" /> : null}
+        {activeImg == "4" ? <img src={Hotel4} alt="" /> : null}
       </div>
       <div className="rsr-flex-right">
         <div className="rsrf-badge">
