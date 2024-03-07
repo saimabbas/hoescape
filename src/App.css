@@ -137,7 +137,7 @@ header {
   margin: 3rem 0;
 }
 .search-text-content {
-  max-width: max-content;
+  max-width: 950px;
   margin: 0 auto;
   background-color: #f5f5f5;
   display: flex;
@@ -165,7 +165,8 @@ header {
 }
 .activeh6 {
   background-color: var(--white) !important;
-  padding: 0.5rem 4rem !important;
+  padding: 0 4rem !important;
+  height: 100%;
 }
 .search-text-content h6 span {
   font-size: 1.4rem;
@@ -1202,7 +1203,7 @@ footer {
   position: absolute;
   top: 0;
   left: 0;
-  transform: translate(0, 14%);
+  transform: translate(0, 13%);
   z-index: 1;
 }
 .add-reset-box {
@@ -1331,4 +1332,125 @@ footer {
 .whb-room-select select:focus {
   outline: unset;
   box-shadow: unset;
+}
+
+/* CHECK IN BOX  */
+.check-in-calendar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: var(--white);
+  border-radius: 0.75rem;
+  box-shadow: 0px 10px 55px 0px rgba(42, 45, 131, 0.13);
+  width: 655px;
+  padding: 1.5rem 2.5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-30%, 13%);
+  z-index: 1;
+}
+.cic-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f3f4f5;
+  width: 100%;
+}
+.cic-top h6 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: 1.6rem;
+  color: var(--black);
+  font-weight: 600;
+  margin: 0;
+}
+.cic-top h6 span {
+  font-size: 1.4rem;
+  color: var(--black);
+  font-weight: 500;
+  margin: 0;
+}
+.cic-top svg {
+  color: var(--black);
+  font-size: 2rem;
+}
+.cic-tabs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  padding: 2rem 0;
+}
+.custom-calendar {
+  border: none !important;
+}
+.cic-tabs .tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background-color: #f5f5f5;
+  border-radius: 1000px;
+  height: 70px;
+  width: 290px;
+}
+.cic-tabs .tabs div {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  font-size: 1.6rem;
+  color: var(--black);
+  font-weight: 600;
+  border-radius: 1000px;
+  cursor: pointer;
+}
+.cic-tabs .tabs div.active {
+  background-color: var(--white);
+}
+.cic-tabs .tab-content {
+  width: 100%;
+}
+.tc-main-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 3rem;
+  width: 100%;
+}
+.tc-dates-opt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.tc-dates-opt button {
+  background-color: transparent;
+  border: 1px solid #dbdde1;
+  border-radius: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+  color: var(--black);
+  font-weight: 600;
+}
+.tc-main-box h3 {
+  text-align: center;
+  font-size: 1.6rem;
+  color: var(--black);
+  font-weight: 600;
+  margin: 0;
+  width: 100%;
 }

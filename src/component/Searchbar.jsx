@@ -8,16 +8,36 @@ import {
   BsSearch,
   BsXLg,
 } from "react-icons/bs";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 
 const Searchbar = () => {
   const [isDropdownh6Visible, setDropdownh6Visible] = useState(false);
+  const [isDropdownh6Visible2, setDropdownh6Visible2] = useState(false);
+  const [isDropdownh6Visible3, setDropdownh6Visible3] = useState(false);
   const [isDropdownh6Visible4, setDropdownh6Visible4] = useState(false);
+  const [activeTab, setActiveTab] = useState("tab1");
 
   const toggleh6Dropdown = () => {
     setDropdownh6Visible(!isDropdownh6Visible);
   };
+  const toggleh6Dropdown2 = () => {
+    setDropdownh6Visible2(!isDropdownh6Visible2);
+  };
+  const toggleh6Dropdown3 = () => {
+    setDropdownh6Visible3(!isDropdownh6Visible3);
+  };
   const toggleh6Dropdown4 = () => {
     setDropdownh6Visible4(!isDropdownh6Visible4);
+  };
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+  };
+
+  const calendarCustomizations = {
+    showDoubleView: true,
+    className: "custom-calendar",
+    calendarType: "US",
   };
   return (
     <div className="search-text-box">
@@ -69,11 +89,118 @@ const Searchbar = () => {
               </div>
             )}
           </h6>
-          <h6>
+          <h6
+            onClick={toggleh6Dropdown2}
+            className={isDropdownh6Visible2 ? "activeh6" : ""}
+          >
             Check In <span>26/04/2024</span>
+            {isDropdownh6Visible2 && (
+              <div className="check-in-calendar">
+                <div className="cic-top">
+                  <h6>
+                    Select your check-in date{" "}
+                    <span>See prices and availability for your dates</span>
+                  </h6>
+                  <BsXLg />
+                </div>
+                <div className="cic-tabs">
+                  <div className="tabs">
+                    <div
+                      className={`tab ${activeTab === "tab1" ? "active" : ""}`}
+                      onClick={() => handleTabClick("tab1")}
+                    >
+                      Dates
+                    </div>
+                    <div
+                      className={`tab ${activeTab === "tab2" ? "active" : ""}`}
+                      onClick={() => handleTabClick("tab2")}
+                    >
+                      Flexible
+                    </div>
+                  </div>
+                  <div className="tab-content">
+                    {activeTab === "tab1" && (
+                      <div className="tc-main-box">
+                        <Calendar {...calendarCustomizations} />
+                        <div className="tc-dates-opt">
+                          <button>Exact dates</button>
+                          <button>+/- 1 day</button>
+                          <button>+/- 2 day</button>
+                          <button>+/- 3 day</button>
+                          <button>+/- 7 day</button>
+                        </div>
+                      </div>
+                    )}
+
+                    {activeTab === "tab2" && (
+                      <div className="tc-main-box">
+                        <Calendar {...calendarCustomizations} />
+                        <div className="tc-dates-opt">
+                          <button>Exact dates</button>
+                          <button>+/- 1 day</button>
+                          <button>+/- 2 day</button>
+                          <button>+/- 3 day</button>
+                          <button>+/- 7 day</button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
           </h6>
-          <h6>
+          <h6
+            onClick={toggleh6Dropdown3}
+            className={isDropdownh6Visible3 ? "activeh6" : ""}
+          >
             Check Out <span>26/04/2024</span>
+            {isDropdownh6Visible3 && (
+              <div className="check-in-calendar">
+                <div className="cic-top">
+                  <h6>
+                    Select your check-out date{" "}
+                    <span>See prices and availability for your dates</span>
+                  </h6>
+                  <BsXLg />
+                </div>
+                <div className="cic-tabs">
+                  <div className="tabs">
+                    <div
+                      className={`tab ${activeTab === "tab1" ? "active" : ""}`}
+                      onClick={() => handleTabClick("tab1")}
+                    >
+                      Dates
+                    </div>
+                    <div
+                      className={`tab ${activeTab === "tab2" ? "active" : ""}`}
+                      onClick={() => handleTabClick("tab2")}
+                    >
+                      Flexible
+                    </div>
+                  </div>
+                  <div className="tab-content">
+                    {activeTab === "tab1" && (
+                      <div className="tc-main-box">
+                        <Calendar {...calendarCustomizations} />
+                        <div className="tc-dates-opt">
+                          <button>Exact dates</button>
+                          <button>+/- 1 day</button>
+                          <button>+/- 2 day</button>
+                          <button>+/- 3 day</button>
+                          <button>+/- 7 day</button>
+                        </div>
+                      </div>
+                    )}
+
+                    {activeTab === "tab2" && (
+                      <div className="tc-main-box">
+                        <h3>Choose your stay</h3>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
           </h6>
           <h6
             onClick={toggleh6Dropdown4}
