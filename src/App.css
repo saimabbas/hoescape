@@ -295,7 +295,7 @@ header {
 }
 .rgl-acco-h-right .acco-ser-input input {
   font-size: 1.2rem;
-  color: #b8b8b8;
+  color: var(--black);
   font-weight: 500;
 }
 .rgl-acco-h-right .acco-ser-input input::placeholder {

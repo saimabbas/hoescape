@@ -87,7 +87,7 @@ const Resultmap = () => {
                             <BsFillStarFill />3
                           </label>
                         </div>
-                        {/* <div className="rating-card">
+                        <div className="rating-card">
                           <input type="checkbox" name="abc" id="4" />
                           <label htmlFor="4">
                             {" "}
@@ -100,7 +100,7 @@ const Resultmap = () => {
                             {" "}
                             <BsFillStarFill />5
                           </label>
-                        </div> */}
+                        </div>
                       </div>
                     </div>
                   )}

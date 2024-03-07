@@ -139,14 +139,18 @@ const Page = () => {
                   )}
                 </div>
                 <div className="rgl-accordian">
-                  <div className="rgl-acco-head" onClick={toggleAccor3}>
+                  <div className="rgl-acco-head">
                     <h6 className="font">Servizi</h6>
                     <div className="rgl-acco-h-right">
                       <div className="acco-ser-input">
                         <BsSearch />
                         <input type="text" placeholder="cerca" />
                       </div>
-                      {isAccor3Visible ? <BsChevronUp /> : <BsChevronDown />}
+                      {isAccor3Visible ? (
+                        <BsChevronUp onClick={toggleAccor3} />
+                      ) : (
+                        <BsChevronDown onClick={toggleAccor3} />
+                      )}
                     </div>
                   </div>
                   {isAccor3Visible && (
@@ -212,14 +216,18 @@ const Page = () => {
                   )}
                 </div>
                 <div className="rgl-accordian">
-                  <div className="rgl-acco-head" onClick={toggleAccor4}>
+                  <div className="rgl-acco-head">
                     <h6 className="font">Località</h6>
                     <div className="rgl-acco-h-right">
                       <div className="acco-ser-input">
                         <BsSearch />
                         <input type="text" placeholder="cerca" />
                       </div>
-                      {isAccor4Visible ? <BsChevronUp /> : <BsChevronDown />}
+                      {isAccor4Visible ? (
+                        <BsChevronUp onClick={toggleAccor4} />
+                      ) : (
+                        <BsChevronDown onClick={toggleAccor4} />
+                      )}
                     </div>
                   </div>
                   {isAccor4Visible && (
