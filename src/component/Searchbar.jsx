@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   BsBuilding,
   BsCalendar4Event,
@@ -16,7 +16,8 @@ const Searchbar = () => {
   const [isDropdownh6Visible2, setDropdownh6Visible2] = useState(false);
   const [isDropdownh6Visible3, setDropdownh6Visible3] = useState(false);
   const [isDropdownh6Visible4, setDropdownh6Visible4] = useState(false);
-  const [activeTab, setActiveTab] = useState("tab1");
+  const [activeTab, setActiveTab] = useState("dates");
+  const dropdownRef = useRef(null);
 
   const toggleh6Dropdown = () => {
     setDropdownh6Visible(!isDropdownh6Visible);
@@ -34,6 +35,66 @@ const Searchbar = () => {
     setActiveTab(tab);
   };
 
+  const handleOutsideClick = (event) => {
+    if (
+      (isDropdownh6Visible && !event.target.classList.contains("tab")) ||
+      (isDropdownh6Visible2 && !event.target.classList.contains("tab")) ||
+      (isDropdownh6Visible4 && !event.target.classList.contains("tab")) ||
+      (isDropdownh6Visible3 &&
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target))
+    ) {
+      setDropdownh6Visible(false);
+      setDropdownh6Visible2(false);
+      setDropdownh6Visible4(false);
+      setDropdownh6Visible3(false);
+    }
+  };
+
+  const handleOutsideClick1 = (event) => {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target) &&
+      !event.target.classList.contains("tab")
+    ) {
+      setDropdownh6Visible3(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isDropdownh6Visible3) {
+      document.addEventListener("mousedown", handleOutsideClick1);
+    } else {
+      document.removeEventListener("mousedown", handleOutsideClick1);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick1);
+    };
+  }, [isDropdownh6Visible3]);
+
+  useEffect(() => {
+    if (
+      isDropdownh6Visible ||
+      isDropdownh6Visible2 ||
+      isDropdownh6Visible4 ||
+      isDropdownh6Visible3
+    ) {
+      document.addEventListener("mousedown", handleOutsideClick);
+    } else {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [
+    isDropdownh6Visible,
+    isDropdownh6Visible2,
+    isDropdownh6Visible4,
+    isDropdownh6Visible3,
+  ]);
+
   const calendarCustomizations = {
     showDoubleView: true,
     className: "custom-calendar",
@@ -49,7 +110,7 @@ const Searchbar = () => {
           >
             Dove vuoi andare? <span>Milano</span>
             {isDropdownh6Visible && (
-              <div className="where-hidden-box">
+              <div className="where-hidden-box" ref={dropdownRef}>
                 <div className="whb-top">
                   <h5>Popular Destinations</h5>
                 </div>
@@ -95,7 +156,7 @@ const Searchbar = () => {
           >
             Check In <span>26/04/2024</span>
             {isDropdownh6Visible2 && (
-              <div className="check-in-calendar">
+              <div className="check-in-calendar" ref={dropdownRef}>
                 <div className="cic-top">
                   <h6>
                     Select your check-in date{" "}
@@ -155,7 +216,7 @@ const Searchbar = () => {
           >
             Check Out <span>26/04/2024</span>
             {isDropdownh6Visible3 && (
-              <div className="check-in-calendar">
+              <div className="check-in-calendar" ref={dropdownRef}>
                 <div className="cic-top">
                   <h6>
                     Select your check-out date{" "}
@@ -166,20 +227,22 @@ const Searchbar = () => {
                 <div className="cic-tabs">
                   <div className="tabs">
                     <div
-                      className={`tab ${activeTab === "tab1" ? "active" : ""}`}
-                      onClick={() => handleTabClick("tab1")}
+                      className={`tab ${activeTab === "dates" ? "active" : ""}`}
+                      onClick={() => handleTabClick("dates")}
                     >
                       Dates
                     </div>
                     <div
-                      className={`tab ${activeTab === "tab2" ? "active" : ""}`}
-                      onClick={() => handleTabClick("tab2")}
+                      className={`tab ${
+                        activeTab === "flexible" ? "active" : ""
+                      }`}
+                      onClick={() => handleTabClick("flexible")}
                     >
                       Flexible
                     </div>
                   </div>
                   <div className="tab-content">
-                    {activeTab === "tab1" && (
+                    {activeTab === "dates" && (
                       <div className="tc-main-box">
                         <Calendar {...calendarCustomizations} />
                         <div className="tc-dates-opt">
@@ -192,9 +255,17 @@ const Searchbar = () => {
                       </div>
                     )}
 
-                    {activeTab === "tab2" && (
+                    {activeTab === "flexible" && (
                       <div className="tc-main-box">
                         <h3>Choose your stay</h3>
+                        <Calendar {...calendarCustomizations} />
+                        <div className="tc-dates-opt">
+                          <button>Exact dates</button>
+                          <button>+/- 1 day</button>
+                          <button>+/- 2 day</button>
+                          <button>+/- 3 day</button>
+                          <button>+/- 7 day</button>
+                        </div>
                       </div>
                     )}
                   </div>
@@ -208,7 +279,7 @@ const Searchbar = () => {
           >
             Stanze <span>2 Stanze, 3 adulti</span>
             {isDropdownh6Visible4 && (
-              <div className="who-hidden-box">
+              <div className="who-hidden-box" ref={dropdownRef}>
                 <div className="add-reset-box">
                   <h6>Reset</h6>
                   <button>Add Room</button>
