@@ -81,36 +81,36 @@ const Page = () => {
                     <div className="rgl-accor-open">
                       <div className="rating-grid">
                         <div className="rating-card">
-                          <input type="radio" name="abc" id="1" />
+                          <input type="checkbox" name="abc" id="1" />
                           <label htmlFor="1">
                             {" "}
                             <BsFillStarFill /> 1
                           </label>
                         </div>
                         <div className="rating-card">
-                          <input type="radio" name="abc" id="2" />
+                          <input type="checkbox" name="abc" id="2" />
                           <label htmlFor="2">
                             {" "}
                             <BsFillStarFill /> 2
                           </label>
                         </div>
                         <div className="rating-card">
-                          <input type="radio" name="abc" id="3" />
+                          <input type="checkbox" name="abc" id="3" />
                           <label htmlFor="3">
                             {" "}
                             <BsFillStarFill />3
                           </label>
                         </div>
                         <div className="rating-card">
-                          <input type="radio" name="abc" id="3" />
-                          <label htmlFor="3">
+                          <input type="checkbox" name="abc" id="4" />
+                          <label htmlFor="4">
                             {" "}
                             <BsFillStarFill />4
                           </label>
                         </div>
                         <div className="rating-card">
-                          <input type="radio" name="abc" id="3" />
-                          <label htmlFor="3">
+                          <input type="checkbox" name="abc" id="5" />
+                          <label htmlFor="5">
                             {" "}
                             <BsFillStarFill />5
                           </label>
