@@ -26,6 +26,8 @@ const Page = () => {
   const [isAccor4Visible, setAccor4Visible] = useState(true);
   const [isAccor5Visible, setAccor5Visible] = useState(true);
   const [isAccor6Visible, setAccor6Visible] = useState(true);
+  const [showCheckboxBox, setShowCheckboxBox] = useState(false);
+  const [showCheckboxBox1, setShowCheckboxBox1] = useState(false);
 
   const toggleAccor1 = () => {
     setAccor1Visible(!isAccor1Visible);
@@ -44,6 +46,12 @@ const Page = () => {
   };
   const toggleAccor6 = () => {
     setAccor6Visible(!isAccor6Visible);
+  };
+  const handleToggleCheckboxBox = () => {
+    setShowCheckboxBox(!showCheckboxBox);
+  };
+  const handleToggleCheckboxBox1 = () => {
+    setShowCheckboxBox1(!showCheckboxBox1);
   };
   return (
     <div className="hoescape">
@@ -206,11 +214,76 @@ const Page = () => {
                           </div>
                           <span>(393)</span>
                         </div>
-                        <div className="check-opt-num">
-                          <h4 className="font">
+                        <div
+                          style={{
+                            display: showCheckboxBox ? "none" : "block",
+                          }}
+                          className="check-opt-num"
+                        >
+                          <h4
+                            className="font"
+                            onClick={handleToggleCheckboxBox}
+                          >
                             Mostra altri 13 <BsChevronDown />
                           </h4>
                         </div>
+                        {showCheckboxBox && (
+                          <div className="hidden-check-opt-box">
+                            <div className="check-opt-num">
+                              <div>
+                                <input type="checkbox" name="" id="" />
+                                <p>
+                                  <BsWifi />
+                                  Piscina Interna
+                                </p>
+                              </div>
+                              <span>(393)</span>
+                            </div>
+                            <div className="check-opt-num">
+                              <div>
+                                <input type="checkbox" name="" id="" />
+                                <p>
+                                  <BsWifi />
+                                  Piscina Interna
+                                </p>
+                              </div>
+                              <span>(393)</span>
+                            </div>
+                            <div className="check-opt-num">
+                              <div>
+                                <input type="checkbox" name="" id="" />
+                                <p>
+                                  <BsWifi />
+                                  Piscina Interna
+                                </p>
+                              </div>
+                              <span>(393)</span>
+                            </div>
+                            <div className="check-opt-num">
+                              <div>
+                                <input type="checkbox" name="" id="" />
+                                <p>
+                                  <BsWifi />
+                                  Piscina Interna
+                                </p>
+                              </div>
+                              <span>(393)</span>
+                            </div>
+                            <div
+                              style={{
+                                display: showCheckboxBox ? "block" : "none",
+                              }}
+                              className="check-opt-num"
+                            >
+                              <h4
+                                className="font"
+                                onClick={handleToggleCheckboxBox}
+                              >
+                                Show Less <BsChevronDown />
+                              </h4>
+                            </div>
+                          </div>
+                        )}
                       </div>
                     </div>
                   )}
@@ -254,11 +327,64 @@ const Page = () => {
                           </div>
                           <span>(393)</span>
                         </div>
-                        <div className="check-opt-num">
-                          <h4 className="font">
+                        <div
+                          style={{
+                            display: showCheckboxBox ? "none" : "block",
+                          }}
+                          className="check-opt-num"
+                        >
+                          <h4
+                            className="font"
+                            onClick={handleToggleCheckboxBox}
+                          >
                             Mostra altri 14 <BsChevronDown />
                           </h4>
                         </div>
+                        {showCheckboxBox && (
+                          <div className="hidden-check-opt-box">
+                            <div className="check-opt-num">
+                              <div>
+                                <input type="checkbox" name="" id="" />
+                                <p>CityLife</p>
+                              </div>
+                              <span>(393)</span>
+                            </div>
+                            <div className="check-opt-num">
+                              <div>
+                                <input type="checkbox" name="" id="" />
+                                <p>CityLife</p>
+                              </div>
+                              <span>(393)</span>
+                            </div>
+                            <div className="check-opt-num">
+                              <div>
+                                <input type="checkbox" name="" id="" />
+                                <p>CityLife</p>
+                              </div>
+                              <span>(393)</span>
+                            </div>
+                            <div className="check-opt-num">
+                              <div>
+                                <input type="checkbox" name="" id="" />
+                                <p>CityLife</p>
+                              </div>
+                              <span>(393)</span>
+                            </div>
+                            <div
+                              style={{
+                                display: showCheckboxBox ? "block" : "none",
+                              }}
+                              className="check-opt-num"
+                            >
+                              <h4
+                                className="font"
+                                onClick={handleToggleCheckboxBox}
+                              >
+                                Show Less <BsChevronDown />
+                              </h4>
+                            </div>
+                          </div>
+                        )}
                       </div>
                     </div>
                   )}

@@ -414,6 +414,17 @@ header {
   justify-content: flex-start;
   gap: 1rem;
 }
+.hidden {
+  display: none;
+}
+.hidden-check-opt-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1rem;
+}
 .check-opt-num {
   display: flex;
   justify-content: space-between;
@@ -566,6 +577,7 @@ header {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 0.75rem 0 0 0.75rem;
 }
 .short-img-grid {
   display: grid;
@@ -592,7 +604,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: space-between;
   border-radius: 0 0.75rem 0.75rem 0;
   border-top: 1px solid #d4d4d4;
   border-right: 1px solid #d4d4d4;
@@ -693,6 +705,47 @@ header {
 .rsrf-services span svg {
   font-size: 19px;
 }
+
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.custom-tooltip {
+  cursor: pointer;
+}
+.tooltip-text {
+  visibility: hidden;
+  width: max-content;
+  background-color: var(--white);
+  color: var(--main);
+  text-align: center;
+  border-radius: 1000px;
+  padding: 0.25rem 0.75rem;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Position the tooltip above the element */
+  left: 50%;
+  margin-left: -60px; /* Center the tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+.tooltip-text .arrow-up {
+  position: absolute;
+  top: 100%;
+  right: 50%;
+  margin-right: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--main) transparent transparent transparent;
+}
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
 .rsr-flex-right h6 {
   font-size: 1.8rem;
   color: var(--black);
@@ -711,7 +764,7 @@ header {
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  padding: 1rem 1rem 0 0;
+  padding: 1.5rem 1rem 0 0;
   margin: 1rem 0 0 0;
   border-top: 1px solid #d0d0d0;
   width: 100%;
