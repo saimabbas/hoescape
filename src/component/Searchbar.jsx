@@ -39,6 +39,7 @@ const Searchbar = () => {
                 setIsCheckOutBoxVisible(false);
                 setIsWhoBoxVisible(false);
               }}
+              className={isWhereBoxVisible ? "activeh6" : ""}
             >
               Dove vuoi andare? <span>Milano</span>
             </h6>
@@ -91,6 +92,7 @@ const Searchbar = () => {
                 setIsWhereBoxVisible(false);
                 setIsWhoBoxVisible(false);
               }}
+              className={isCheckInBoxVisible ? "activeh6" : ""}
             >
               Check In <span>26/04/2024</span>
             </h6>
@@ -307,6 +309,7 @@ const Searchbar = () => {
                 setIsCheckInBoxVisible(false);
                 setIsWhoBoxVisible(false);
               }}
+              className={isCheckOutBoxVisible ? "activeh6" : ""}
             >
               Check Out <span>26/04/2024</span>
             </h6>
@@ -523,6 +526,7 @@ const Searchbar = () => {
                 setIsWhereBoxVisible(false);
                 setIsCheckInBoxVisible(false);
               }}
+              className={isWhoBoxVisible ? "activeh6" : ""}
             >
               {" "}
               Stanze <span>2 Stanze, 3 adulti</span>
