@@ -16,6 +16,7 @@ const Searchbar = () => {
   const [isDropdownh6Visible2, setDropdownh6Visible2] = useState(false);
   const [isDropdownh6Visible3, setDropdownh6Visible3] = useState(false);
   const [isDropdownh6Visible4, setDropdownh6Visible4] = useState(false);
+  const [isCheckInBoxVisible, setIsCheckInBoxVisible] = useState(false);
   const [activeTab, setActiveTab] = useState("dates");
   const dropdownRef = useRef(null);
 
@@ -29,7 +30,7 @@ const Searchbar = () => {
     setDropdownh6Visible3(!isDropdownh6Visible3);
   };
   const toggleh6Dropdown4 = () => {
-    setDropdownh6Visible4(!isDropdownh6Visible4);
+    setDropdownh6Visible4(!isCheckInBoxVisible);
   };
   const handleTabClick = (tab) => {
     setActiveTab(tab);
@@ -103,7 +104,7 @@ const Searchbar = () => {
   return (
     <div className="search-text-box">
       <div className="box">
-        <div className="search-text-content">
+        <div className="search-grid">
           <h6
             onClick={toggleh6Dropdown}
             className={isDropdownh6Visible ? "activeh6" : ""}
@@ -150,19 +151,28 @@ const Searchbar = () => {
               </div>
             )}
           </h6>
-          <h6
-            onClick={toggleh6Dropdown2}
-            className={isDropdownh6Visible2 ? "activeh6" : ""}
-          >
-            Check In <span>26/04/2024</span>
-            {isDropdownh6Visible2 && (
-              <div className="check-in-calendar" ref={dropdownRef}>
+          <div className="search-grid-card">
+            <h6
+              onClick={() => {
+                setIsCheckInBoxVisible(true);
+              }}
+            >
+              Check In <span>26/04/2024</span>
+            </h6>
+            {isCheckInBoxVisible && (
+              <div className="check-in-calendar">
                 <div className="cic-top">
                   <h6>
                     Select your check-in date{" "}
                     <span>See prices and availability for your dates</span>
                   </h6>
-                  <BsXLg />
+                  <span
+                    onClick={() => {
+                      setIsCheckInBoxVisible(false);
+                    }}
+                  >
+                    <BsXLg />
+                  </span>
                 </div>
                 <div className="cic-tabs">
                   <div className="tabs">
@@ -209,7 +219,7 @@ const Searchbar = () => {
                 </div>
               </div>
             )}
-          </h6>
+          </div>
           <h6
             onClick={toggleh6Dropdown3}
             className={isDropdownh6Visible3 ? "activeh6" : ""}

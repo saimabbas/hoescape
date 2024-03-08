@@ -136,19 +136,22 @@ header {
   width: 100%;
   margin: 3rem 0;
 }
-.search-text-content {
-  max-width: 950px;
+.search-grid {
+  width: max-content;
   margin: 0 auto;
   background-color: #f5f5f5;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: max-content max-content max-content max-content max-content;
   gap: 2rem;
   /* padding: 0.5rem 0.5rem 0.5rem 4rem; */
   border-radius: 1000px;
   height: 75px;
 }
-.search-text-content h6 {
+.search-grid-card {
+  width: 100%;
+  position: relative;
+}
+.search-grid h6 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -168,7 +171,7 @@ header {
   padding: 0 4rem !important;
   height: 100%;
 }
-.search-text-content h6 span {
+.search-grid h6 span {
   font-size: 1.4rem;
   color: var(--main);
   font-weight: 500;
@@ -1346,9 +1349,9 @@ footer {
   width: 655px;
   padding: 1.5rem 2.5rem;
   position: absolute;
-  top: 0;
-  left: 0;
-  transform: translate(-30%, 13%);
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, calc(100% + 1rem));
   z-index: 1;
 }
 .cic-top {
