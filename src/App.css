@@ -1204,9 +1204,8 @@ footer {
   box-shadow: 0px 10px 55px 0px rgba(42, 45, 131, 0.13);
   width: 360px;
   position: absolute;
-  top: 0;
-  left: 0;
-  transform: translate(0, 13%);
+  right: 20%;
+  transform: translate(0, 2%);
   z-index: 1;
 }
 .add-reset-box {
@@ -1383,6 +1382,7 @@ footer {
 .cic-top svg {
   color: var(--black);
   font-size: 2rem;
+  cursor: pointer;
 }
 .cic-tabs {
   display: flex;
@@ -1420,6 +1420,7 @@ footer {
 }
 .cic-tabs .tabs div.active {
   background-color: var(--white);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 .cic-tabs .tab-content {
   width: 100%;
@@ -1429,7 +1430,7 @@ footer {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 3rem;
+  gap: 2rem;
   width: 100%;
 }
 .tc-dates-opt {
@@ -1454,9 +1455,97 @@ footer {
   text-align: center;
   font-size: 1.6rem;
   color: var(--black);
-  font-weight: 600;
+  font-weight: 700;
   margin: 0;
   width: 100%;
+  border-bottom: 1px solid #f3f4f5;
+  padding-bottom: 1.5rem;
+}
+.tc-choose-days {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 60%;
+  margin: 0 auto;
+}
+.tcd-select-card {
+  width: 100%;
+}
+.tcd-select-card input {
+  display: none;
+}
+.tcd-select-card label {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  font-size: 1.3rem;
+  color: var(--black);
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 1000px;
+  cursor: pointer;
+  border: 1px solid #dbdde1;
+  padding: 0.5rem 2rem;
+}
+.tcd-select-card label svg {
+  color: var(--black);
+  font-size: 1.5rem;
+}
+.tcd-select-card input:checked + label {
+  background-color: transparent;
+  color: var(--main);
+  border-color: var(--main);
+}
+.tcd-select-card input:checked + label svg {
+  color: var(--main);
+}
+.tc-choose-month {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.75rem;
+  width: 100%;
+  margin: 0 auto;
+}
+.tcd-selectm-card {
+  width: 100%;
+}
+.tcd-selectm-card input {
+  display: none;
+}
+.tcd-selectm-card label {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  font-size: 1.4rem;
+  color: var(--black);
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  border: 1px solid #dbdde1;
+  padding: 1.75rem 1.25rem;
+}
+.tcd-selectm-card label svg {
+  color: var(--black);
+  font-size: 1.5rem;
+}
+.tcd-selectm-card input:checked + label {
+  background-color: transparent;
+  color: var(--main);
+  border-color: var(--main);
+}
+.tcd-selectm-card input:checked + label svg path {
+  stroke: var(--main);
 }
 
 /* REACT CALENDER  */
@@ -1485,9 +1574,14 @@ span.react-calendar__navigation__label__labelText.react-calendar__navigation__la
   background-color: #f3f4f5;
   padding: 0.5rem;
   border-radius: 0.5rem;
+  font-size: 1.15rem !important;
 }
 .react-calendar__month-view__weekdays div abbr {
   text-decoration: none;
+}
+.react-calendar__tile {
+  padding: 1.5rem 6.6667px !important;
+  font-size: 1.15rem !important;
 }
 .react-calendar__tile--now {
   background-color: var(--main) !important;
