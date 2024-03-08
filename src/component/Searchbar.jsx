@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   BsBuilding,
   BsCalendar4Event,
@@ -6,10 +6,12 @@ import {
   BsGeoAlt,
   BsPlusCircle,
   BsSearch,
+  BsX,
   BsXLg,
 } from "react-icons/bs";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import "../styles/searchbar.css";
 
 const Searchbar = () => {
   const [isWhereBoxVisible, setIsWhereBoxVisible] = useState(false);
@@ -17,10 +19,32 @@ const Searchbar = () => {
   const [isWhoBoxVisible, setIsWhoBoxVisible] = useState(false);
   const [isCheckInBoxVisible, setIsCheckInBoxVisible] = useState(false);
   const [activeTab, setActiveTab] = useState("dates");
+  const [inputValue, setInputValue] = useState("");
+  const divRef = useRef();
+
+  const handleClearInput = () => {
+    setInputValue("");
+  };
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   };
+
+  const handleClickOutside = (event) => {
+    if (divRef.current && !divRef.current.contains(event.target)) {
+      setIsWhereBoxVisible(false);
+      setIsCheckOutBoxVisible(false);
+      setIsCheckInBoxVisible(false);
+      setIsWhoBoxVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside, true);
+    return () => {
+      document.removeEventListener("click", handleClickOutside, true);
+    };
+  }, []);
 
   const calendarCustomizations = {
     showDoubleView: true,
@@ -41,10 +65,25 @@ const Searchbar = () => {
               }}
               className={isWhereBoxVisible ? "activeh6" : ""}
             >
-              Dove vuoi andare? <span>Milano</span>
+              Dove vuoi andare?{" "}
+              <span
+                className={`search-input-container ${
+                  inputValue ? "has-value" : ""
+                }`}
+              >
+                <input
+                  type="text"
+                  placeholder="Milano"
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                />
+                {inputValue && (
+                  <BsXLg className="close-icon" onClick={handleClearInput} />
+                )}
+              </span>
             </h6>
             {isWhereBoxVisible && (
-              <div className="where-hidden-box">
+              <div className="where-hidden-box" ref={divRef}>
                 <div className="whb-top">
                   <h5>Popular Destinations</h5>
                 </div>
@@ -94,10 +133,14 @@ const Searchbar = () => {
               }}
               className={isCheckInBoxVisible ? "activeh6" : ""}
             >
-              Check In <span>26/04/2024</span>
+              Check In{" "}
+              <span className="search-input-container">
+                <input type="text" placeholder="Select date" />
+              </span>
             </h6>
+
             {isCheckInBoxVisible && (
-              <div className="check-in-calendar">
+              <div className="check-in-calendar" ref={divRef}>
                 <div className="cic-top">
                   <h6>
                     Select your check-in date{" "}
@@ -311,10 +354,13 @@ const Searchbar = () => {
               }}
               className={isCheckOutBoxVisible ? "activeh6" : ""}
             >
-              Check Out <span>26/04/2024</span>
+              Check Out{" "}
+              <span className="search-input-container">
+                <input type="text" placeholder="Select date" />
+              </span>
             </h6>
             {isCheckOutBoxVisible && (
-              <div className="check-in-calendar">
+              <div className="check-in-calendar" ref={divRef}>
                 <div className="cic-top">
                   <h6>
                     Select your check-out date{" "}
@@ -532,7 +578,7 @@ const Searchbar = () => {
               Stanze <span>2 Stanze, 3 adulti</span>
             </h6>
             {isWhoBoxVisible && (
-              <div className="who-hidden-box">
+              <div className="who-hidden-box" ref={divRef}>
                 <div className="add-reset-box">
                   <h6>Reset</h6>
                   <button>Add Room</button>

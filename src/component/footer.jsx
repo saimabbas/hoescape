@@ -7,6 +7,8 @@ import {
   FaTwitter,
   FaYoutube,
 } from "react-icons/fa6";
+import "../styles/footer.css";
+import { Link } from "react-router-dom";
 
 const footer = () => {
   return (
@@ -33,9 +35,9 @@ const footer = () => {
             <div className="footer-grid-content">
               <div className="fgc-middle-top">
                 <h5 className="font">Reach Out</h5>
-                <a href="#">Email: info@cozystay.com</a>
-                <a href="#">Telephone: +41 22 345 66 89</a>
-                <a href="#">Address: 322 Main Street, Napa, CA 94559</a>
+                <Link to="#">Email: info@cozystay.com</Link>
+                <Link to="#">Telephone: +41 22 345 66 89</Link>
+                <Link to="#">Address: 322 Main Street, Napa, CA 94559</Link>
               </div>
               <div className="fgc-middle-bottom">
                 <div className="fgcm-content">
@@ -72,10 +74,10 @@ const footer = () => {
             <div className="footer-grid-content">
               <div className="fgc-middle-top">
                 <h5 className="font">Navigate</h5>
-                <a href="#">Accommodations</a>
-                <a href="#">Our Story</a>
-                <a href="#">Contact Us</a>
-                <a href="#">Services</a>
+                <Link to="#">Accommodations</Link>
+                <Link to="#">Our Story</Link>
+                <Link to="#">Contact Us</Link>
+                <Link to="#">Services</Link>
               </div>
             </div>
           </div>

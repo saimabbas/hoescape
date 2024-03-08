@@ -59,6 +59,30 @@ const Hotelcard = () => {
         {activeImg == "3" ? <img src={Hotel3} alt="" /> : null}
         {activeImg == "4" ? <img src={Hotel4} alt="" /> : null}
       </div>
+      {/* <div className="rsr-mob-top-box">
+        <div className="rsr-mob-card-img">
+          <img src={Hotel1} alt="" />
+        </div>
+        <div className="rsr-mob-card-content">
+          <h1>Hotel Gran Paradiso Terme</h1>
+          <div className="rsrf-star">
+            <BsFillStarFill />
+            <BsFillStarFill />
+            <BsFillStarFill />
+            <BsFillStarFill />
+            <BsFillStarFill />
+          </div>
+          <h5>
+            <BsGeoAlt />
+            Veneto, Cortina d’Ampezzo
+          </h5>
+          <div className="rsrf-badge">
+            <span>Luxury</span>
+            <span>Comfort</span>
+            <span>Business Friendly</span>
+          </div>
+        </div>
+      </div> */}
       <div className="rsr-flex-right">
         <div className="rsrf-badge">
           <span>Luxury</span>

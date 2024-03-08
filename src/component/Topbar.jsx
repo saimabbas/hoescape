@@ -1,5 +1,6 @@
 import React from "react";
 import { BsEnvelope, BsFillTelephoneFill } from "react-icons/bs";
+import "../styles/header.css";
 
 const Topbar = () => {
   return (
