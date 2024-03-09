@@ -13,6 +13,9 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import "../styles/searchbar.css";
 
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 const Searchbar = () => {
   const [isWhereBoxVisible, setIsWhereBoxVisible] = useState(false);
   const [isCheckOutBoxVisible, setIsCheckOutBoxVisible] = useState(false);
@@ -21,6 +24,7 @@ const Searchbar = () => {
   const [activeTab, setActiveTab] = useState("dates");
   const [inputValue, setInputValue] = useState("");
   const divRef = useRef();
+  const whereInputRef = useRef(null);
 
   const handleClearInput = () => {
     setInputValue("");
@@ -46,26 +50,85 @@ const Searchbar = () => {
     };
   }, []);
 
-  const calendarCustomizations = {
-    showDoubleView: true,
-    className: "custom-calendar",
-    calendarType: "US",
+  let handleWhere = () => {
+    setIsWhereBoxVisible(true);
+    setIsCheckInBoxVisible(false);
+    setIsCheckOutBoxVisible(false);
+    setIsWhoBoxVisible(false);
+    whereInputRef.current.focus();
   };
+  let handleWho = () => {
+    setIsWhoBoxVisible(true);
+    setIsCheckOutBoxVisible(false);
+    setIsWhereBoxVisible(false);
+    setIsCheckInBoxVisible(false);
+  };
+
+  const [rooms, setRooms] = useState([{ adults: 2, children: [] }]);
+
+  const addRoom = () => {
+    if (rooms.length < 3) {
+      // Limit to 3 rooms
+      setRooms([...rooms, { adults: 2, children: [] }]);
+    }
+  };
+
+  const resetRooms = () => {
+    setRooms([{ adults: 2, children: [] }]);
+  };
+
+  const updateAdults = (index, delta) => {
+    const newRooms = [...rooms];
+    const newAdultCount = newRooms[index].adults + delta;
+    if (newAdultCount >= 1 && newAdultCount <= 9) {
+      // Enforce adult limit per room
+      newRooms[index].adults = newAdultCount;
+      setRooms(newRooms);
+    }
+  };
+
+  const updateChildren = (index, delta) => {
+    const newRooms = [...rooms];
+    const currentChildrenCount = newRooms[index].children.length;
+    if (delta === 1 && currentChildrenCount < 3) {
+      // Allow adding if under child limit
+      newRooms[index].children.push({ age: 0 });
+    } else if (delta === -1 && currentChildrenCount > 0) {
+      // Allow removing if above 0
+      newRooms[index].children.pop();
+    }
+    setRooms(newRooms);
+  };
+
+  const updateChildAge = (roomIndex, childIndex, age) => {
+    const newRooms = [...rooms];
+    newRooms[roomIndex].children[childIndex].age = age;
+    setRooms(newRooms);
+  };
+
+  const removeRoom = (index) => {
+    const newRooms = rooms.filter((_, i) => i !== index);
+    setRooms(newRooms);
+  };
+
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(null);
+  const onChange = (dates) => {
+    const [start, end] = dates;
+    setStartDate(start);
+    setEndDate(end);
+  };
+
   return (
     <div className="search-text-box">
       <div className="box">
         <div className="search-grid">
           <div className="search-grid-card">
             <h6
-              onClick={() => {
-                setIsWhereBoxVisible(true);
-                setIsCheckInBoxVisible(false);
-                setIsCheckOutBoxVisible(false);
-                setIsWhoBoxVisible(false);
-              }}
-              className={isWhereBoxVisible ? "activeh6" : ""}
+              onClick={handleWhere}
+              className={isWhereBoxVisible ? "active-tab" : ""}
             >
-              Dove vuoi andare?{" "}
+              Dove vuoi andare?
               <span
                 className={`search-input-container ${
                   inputValue ? "has-value" : ""
@@ -73,9 +136,10 @@ const Searchbar = () => {
               >
                 <input
                   type="text"
-                  placeholder="Milano"
+                  placeholder="Search Hotel Or Place"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
+                  ref={whereInputRef}
                 />
                 {inputValue && (
                   <BsXLg className="close-icon" onClick={handleClearInput} />
@@ -127,11 +191,11 @@ const Searchbar = () => {
             <h6
               onClick={() => {
                 setIsCheckInBoxVisible(true);
-                setIsCheckOutBoxVisible(false);
                 setIsWhereBoxVisible(false);
+                setIsCheckOutBoxVisible(false);
                 setIsWhoBoxVisible(false);
               }}
-              className={isCheckInBoxVisible ? "activeh6" : ""}
+              className={isCheckInBoxVisible ? "active-tab" : ""}
             >
               Check In{" "}
               <span className="search-input-container">
@@ -143,12 +207,12 @@ const Searchbar = () => {
               <div className="check-in-calendar" ref={divRef}>
                 <div className="cic-top">
                   <h6>
-                    Select your check-in date{" "}
+                    Select your check-out date{" "}
                     <span>See prices and availability for your dates</span>
                   </h6>
                   <span
                     onClick={() => {
-                      setIsCheckInBoxVisible(false);
+                      setIsCheckOutBoxVisible(false);
                     }}
                   >
                     <BsXLg />
@@ -174,7 +238,15 @@ const Searchbar = () => {
                   <div className="tab-content">
                     {activeTab === "dates" && (
                       <div className="tc-main-box">
-                        <Calendar {...calendarCustomizations} />
+                        <DatePicker
+                          selected={startDate}
+                          onChange={onChange}
+                          startDate={startDate}
+                          endDate={endDate}
+                          selectsRange
+                          inline
+                          monthsShown={2}
+                        />
                         <div className="tc-dates-opt">
                           <button>Exact dates</button>
                           <button>+/- 1 day</button>
@@ -352,13 +424,14 @@ const Searchbar = () => {
                 setIsCheckInBoxVisible(false);
                 setIsWhoBoxVisible(false);
               }}
-              className={isCheckOutBoxVisible ? "activeh6" : ""}
+              className={isCheckOutBoxVisible ? "active-tab" : ""}
             >
               Check Out{" "}
               <span className="search-input-container">
                 <input type="text" placeholder="Select date" />
               </span>
             </h6>
+
             {isCheckOutBoxVisible && (
               <div className="check-in-calendar" ref={divRef}>
                 <div className="cic-top">
@@ -394,7 +467,15 @@ const Searchbar = () => {
                   <div className="tab-content">
                     {activeTab === "dates" && (
                       <div className="tc-main-box">
-                        <Calendar {...calendarCustomizations} />
+                        <DatePicker
+                          selected={startDate}
+                          onChange={onChange}
+                          startDate={startDate}
+                          endDate={endDate}
+                          selectsRange
+                          inline
+                          monthsShown={2}
+                        />
                         <div className="tc-dates-opt">
                           <button>Exact dates</button>
                           <button>+/- 1 day</button>
@@ -566,87 +647,96 @@ const Searchbar = () => {
           </div>
           <div className="serach-grid-box">
             <h6
-              onClick={() => {
-                setIsWhoBoxVisible(true);
-                setIsCheckOutBoxVisible(false);
-                setIsWhereBoxVisible(false);
-                setIsCheckInBoxVisible(false);
-              }}
-              className={isWhoBoxVisible ? "activeh6" : ""}
+              onClick={handleWho}
+              className={isWhoBoxVisible ? "active-tab" : ""}
             >
               {" "}
-              Stanze <span>2 Stanze, 3 adulti</span>
+              Stanze{" "}
+              <span>
+                {rooms.length} Stanze,{" "}
+                {rooms.reduce((acc, room) => acc + room.adults, 0)} adulti
+                {(() => {
+                  const totalChildren = rooms.reduce(
+                    (acc, room) => acc + room.children.length,
+                    0
+                  );
+                  if (totalChildren >= 1 && totalChildren <= 3) {
+                    return `, ${totalChildren} bambini`;
+                  }
+                  return "";
+                })()}
+              </span>
             </h6>
             {isWhoBoxVisible && (
               <div className="who-hidden-box" ref={divRef}>
                 <div className="add-reset-box">
-                  <h6>Reset</h6>
-                  <button>Add Room</button>
+                  <h6 onClick={resetRooms}>Reset</h6>
+                  <button onClick={addRoom}>Add Room</button>
                 </div>
-                <div className="whb-room-box">
-                  <div className="whb-top">
-                    <h5>Room 1</h5>
-                    <BsXLg />
-                  </div>
-                  <div className="whb-room-bottom">
-                    <div className="whb-plus-minus">
-                      <h5>Adults</h5>
-                      <div>
-                        <BsDashCircle />
-                        <span>2</span>
-                        <BsPlusCircle />
+
+                {rooms.map((room, index) => (
+                  <div className="whb-room-box" key={index}>
+                    <div className="whb-top">
+                      <h5>Room {index + 1}</h5>
+                      {rooms.length > 1 && (
+                        <BsXLg onClick={() => removeRoom(index)} />
+                      )}
+                    </div>
+                    <div className="whb-room-bottom">
+                      <div className="whb-plus-minus">
+                        <h5>Adults</h5>
+                        <div>
+                          <BsDashCircle
+                            onClick={() => updateAdults(index, -1)}
+                          />
+                          <span>{room.adults}</span>
+                          <BsPlusCircle
+                            onClick={() => updateAdults(index, 1)}
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div className="whb-plus-minus">
-                      <h5>Children</h5>
-                      <div>
-                        <BsDashCircle className="whb-plus-excep" />
-                        <span>1</span>
-                        <BsPlusCircle />
+                      <div className="whb-plus-minus">
+                        <h5>Children</h5>
+                        <div>
+                          <BsDashCircle
+                            onClick={() => updateChildren(index, -1)}
+                          />
+                          <span>{room.children.length}</span>
+                          <BsPlusCircle
+                            onClick={() => updateChildren(index, 1)}
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div className="whb-room-select">
-                      <p>Age of children on date of travel:</p>
-                      <select id="whb">
-                        <option value="option1">0</option>
-                        <option value="option2">1</option>
-                        <option value="option3">2</option>
-                      </select>
+
+                      {room.children.length > 0 && (
+                        <div className="whb-room-select">
+                          <p>Age of children on date of travel:</p>
+                          <div className="childrenage-grid">
+                            {room.children.map((child, childIndex) => (
+                              <select
+                                key={childIndex}
+                                value={child.age}
+                                onChange={(e) =>
+                                  updateChildAge(
+                                    index,
+                                    childIndex,
+                                    e.target.value
+                                  )
+                                }
+                              >
+                                {Array.from({ length: 18 }, (_, i) => (
+                                  <option key={i} value={i}>
+                                    {i}
+                                  </option>
+                                ))}
+                              </select>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
-                </div>
-                <div className="whb-room-box">
-                  <div className="whb-top">
-                    <h5>Room 2</h5>
-                    <BsXLg />
-                  </div>
-                  <div className="whb-room-bottom">
-                    <div className="whb-plus-minus">
-                      <h5>Adults</h5>
-                      <div>
-                        <BsDashCircle />
-                        <span>2</span>
-                        <BsPlusCircle />
-                      </div>
-                    </div>
-                    <div className="whb-plus-minus">
-                      <h5>Children</h5>
-                      <div>
-                        <BsDashCircle className="whb-plus-excep" />
-                        <span>1</span>
-                        <BsPlusCircle />
-                      </div>
-                    </div>
-                    <div className="whb-room-select">
-                      <p>Age of children on date of travel:</p>
-                      <select id="whb">
-                        <option value="option1">0</option>
-                        <option value="option2">1</option>
-                        <option value="option3">2</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
             )}
           </div>

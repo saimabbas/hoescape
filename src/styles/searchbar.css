@@ -7,11 +7,10 @@
   margin: 0 auto;
   background-color: #f5f5f5;
   display: grid;
-  grid-template-columns: max-content max-content max-content max-content max-content;
-  gap: 2rem;
-  /* padding: 0.5rem 0.5rem 0.5rem 4rem; */
+  grid-template-columns: 1.25fr 0.75fr 0.75fr 1.25fr max-content;
   border-radius: 1000px;
   height: 75px;
+  position: relative;
 }
 .search-grid-card {
   width: 100%;
@@ -26,16 +25,16 @@
   color: var(--black);
   font-weight: 500;
   cursor: pointer;
-  padding: 0.5rem 0.5rem 0.5rem 4rem;
+  padding: 0 3rem;
   border-radius: 1000px;
   background-color: transparent;
   position: relative;
   height: 100%;
+  width: 100%;
 }
-.activeh6 {
-  background-color: var(--white) !important;
-  padding: 0 4rem !important;
-  height: 100%;
+.search-grid h6.active-tab {
+  background-color: var(--white);
+  box-shadow: 0 0 5px 5px rgba(149, 157, 165, 0.035);
 }
 .search-input-container {
   display: flex;
@@ -54,6 +53,7 @@
   font-weight: 500;
   border: unset;
   padding: 0;
+  width: 100%;
   background-color: transparent;
 }
 .search-input-container input:focus {
@@ -158,8 +158,18 @@
   font-weight: 400;
   margin: 0;
 }
+.serach-grid-box {
+  width: 100%;
+  position: relative;
+}
 
 /* WHO BOX  */
+.childrenage-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+}
 .who-hidden-box {
   display: flex;
   flex-direction: column;
@@ -168,9 +178,10 @@
   background-color: var(--white);
   border-radius: 0.75rem;
   box-shadow: 0px 10px 55px 0px rgba(42, 45, 131, 0.13);
-  width: 360px;
+  width: max-content;
+  min-width: 350px;
   position: absolute;
-  right: 20%;
+  left: 0%;
   transform: translate(0, 2%);
   z-index: 1;
 }
@@ -198,6 +209,7 @@
   font-weight: 500;
   border: unset;
   border-radius: 0.75rem;
+  white-space: nowrap;
 }
 .whb-room-box {
   display: flex;
@@ -280,6 +292,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   gap: 1rem;
+  width: 100%;
 }
 .whb-room-select p {
   font-size: 1.4rem;
@@ -295,7 +308,7 @@
   color: var(--black);
   font-weight: 500;
   margin: 0;
-  width: 30%;
+  width: 100%;
 }
 .whb-room-select select:focus {
   outline: unset;
@@ -311,7 +324,7 @@
   background-color: var(--white);
   border-radius: 0.75rem;
   box-shadow: 0px 10px 55px 0px rgba(42, 45, 131, 0.13);
-  width: 655px;
+  width: 650px;
   padding: 1.5rem 2.5rem;
   position: absolute;
   bottom: 0;
