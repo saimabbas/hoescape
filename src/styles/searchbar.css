@@ -418,7 +418,13 @@
   align-items: center;
   gap: 1rem;
 }
-.tc-dates-opt button {
+.tc-dates-opt-card {
+  width: 100%;
+}
+.tc-dates-opt-card input {
+  display: none;
+}
+.tc-dates-opt-card label {
   background-color: transparent;
   border: 1px solid #dbdde1;
   border-radius: 1000px;
@@ -429,6 +435,12 @@
   font-size: 1.4rem;
   color: var(--black);
   font-weight: 600;
+  white-space: nowrap;
+}
+.tc-dates-opt-card input:checked + label {
+  background-color: transparent;
+  color: var(--main);
+  border-color: var(--main);
 }
 .tc-main-box h3 {
   text-align: center;
