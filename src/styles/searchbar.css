@@ -15,6 +15,9 @@
 .search-grid-card {
   width: 100%;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .search-grid h6 {
   display: flex;
@@ -570,10 +573,11 @@
 .react-datepicker__day-name,
 .react-datepicker__day,
 .react-datepicker__time-name {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   color: var(--black);
-  font-weight: 500;
+  font-weight: 400;
   width: 3.5rem !important;
+  border-radius: 50% !important;
   line-height: 3.5rem !important;
 }
 .react-datepicker__day--in-selecting-range:not(
@@ -631,4 +635,7 @@
 .react-datepicker__quarter-text--keyboard-selected,
 .react-datepicker__year-text--keyboard-selected {
   color: var(--white) !important;
+}
+.react-datepicker__day--keyboard-selected {
+  font-weight: 400 !important;
 }
