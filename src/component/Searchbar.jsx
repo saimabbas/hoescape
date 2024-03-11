@@ -56,14 +56,24 @@ const Searchbar = () => {
     setIsWhereBoxVisible(true);
     setIsCheckInBoxVisible(false);
     setIsCheckOutBoxVisible(false);
+    setIsDateBoxVisible(false);
     setIsWhoBoxVisible(false);
     whereInputRef.current.focus();
   };
   let handleWho = () => {
     setIsWhoBoxVisible(true);
+    setIsDateBoxVisible(false);
     setIsCheckOutBoxVisible(false);
     setIsWhereBoxVisible(false);
     setIsCheckInBoxVisible(false);
+  };
+
+  let handleDate = () => {
+    setIsDateBoxVisible(true);
+    setIsCheckOutBoxVisible(false);
+    setIsWhereBoxVisible(false);
+    setIsCheckInBoxVisible(false);
+    setIsWhoBoxVisible(false);
   };
   const [rooms, setRooms] = useState([{ adults: 2, children: [] }]);
   const addRoom = () => {
@@ -202,8 +212,12 @@ const Searchbar = () => {
 
           <div className="search-grid-card">
             <h6
+              // onClick={() => {
+              //   setIsDateBoxVisible(true);
+              //   setActiveInput("checkIn");
+              // }}
               onClick={() => {
-                setIsDateBoxVisible(true);
+                handleDate();
                 setActiveInput("checkIn");
               }}
               className={activeInput === "checkIn" ? "active-tab" : ""}
@@ -390,19 +404,19 @@ const Searchbar = () => {
                       <h3>Choose your stay</h3>
                       <div className="tc-choose-days">
                         <div className="tcd-select-card">
-                          <input type="radio" name="weekend" id="weekend" />
+                          <input type="checkbox" name="weekend" id="weekend" />
                           <label htmlFor="weekend">
                             <BsCalendar4Event /> Weekend
                           </label>
                         </div>
                         <div className="tcd-select-card">
-                          <input type="radio" name="week" id="week" />
+                          <input type="checkbox" name="week" id="week" />
                           <label htmlFor="week">
                             <BsCalendar4Event /> Week
                           </label>
                         </div>
                         <div className="tcd-select-card">
-                          <input type="radio" name="month" id="month" />
+                          <input type="checkbox" name="month" id="month" />
                           <label htmlFor="month">
                             <BsCalendar4Event /> Month
                           </label>
@@ -417,7 +431,7 @@ const Searchbar = () => {
                         >
                           <SwiperSlide>
                             <div className="tcd-selectm-card">
-                              <input type="radio" name="jan" id="jan" />
+                              <input type="checkbox" name="jan" id="jan" />
                               <label htmlFor="jan">
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -440,7 +454,7 @@ const Searchbar = () => {
                           </SwiperSlide>
                           <SwiperSlide>
                             <div className="tcd-selectm-card">
-                              <input type="radio" name="feb" id="feb" />
+                              <input type="checkbox" name="feb" id="feb" />
                               <label htmlFor="feb">
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -463,7 +477,7 @@ const Searchbar = () => {
                           </SwiperSlide>
                           <SwiperSlide>
                             <div className="tcd-selectm-card">
-                              <input type="radio" name="march" id="march" />
+                              <input type="checkbox" name="march" id="march" />
                               <label htmlFor="march">
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -486,7 +500,7 @@ const Searchbar = () => {
                           </SwiperSlide>
                           <SwiperSlide>
                             <div className="tcd-selectm-card">
-                              <input type="radio" name="april" id="april" />
+                              <input type="checkbox" name="april" id="april" />
                               <label htmlFor="april">
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -509,7 +523,7 @@ const Searchbar = () => {
                           </SwiperSlide>
                           <SwiperSlide>
                             <div className="tcd-selectm-card">
-                              <input type="radio" name="may" id="may" />
+                              <input type="checkbox" name="may" id="may" />
                               <label htmlFor="may">
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -532,7 +546,7 @@ const Searchbar = () => {
                           </SwiperSlide>
                           <SwiperSlide>
                             <div className="tcd-selectm-card">
-                              <input type="radio" name="june" id="june" />
+                              <input type="checkbox" name="june" id="june" />
                               <label htmlFor="june">
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -555,7 +569,7 @@ const Searchbar = () => {
                           </SwiperSlide>
                           <SwiperSlide>
                             <div className="tcd-selectm-card">
-                              <input type="radio" name="july" id="july" />
+                              <input type="checkbox" name="july" id="july" />
                               <label htmlFor="july">
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -578,7 +592,11 @@ const Searchbar = () => {
                           </SwiperSlide>
                           <SwiperSlide>
                             <div className="tcd-selectm-card">
-                              <input type="radio" name="august" id="august" />
+                              <input
+                                type="checkbox"
+                                name="august"
+                                id="august"
+                              />
                               <label htmlFor="august">
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -601,7 +619,7 @@ const Searchbar = () => {
                           </SwiperSlide>
                           <SwiperSlide>
                             <div className="tcd-selectm-card">
-                              <input type="radio" name="sep" id="sep" />
+                              <input type="checkbox" name="sep" id="sep" />
                               <label htmlFor="sep">
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -624,7 +642,7 @@ const Searchbar = () => {
                           </SwiperSlide>
                           <SwiperSlide>
                             <div className="tcd-selectm-card">
-                              <input type="radio" name="oct" id="oct" />
+                              <input type="checkbox" name="oct" id="oct" />
                               <label htmlFor="oct">
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"

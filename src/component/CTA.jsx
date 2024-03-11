@@ -1,5 +1,5 @@
 import React from "react";
-import CTAImg from "../assets/img/cta.png";
+import CTAImg from "../assets/img/cta2.png";
 
 const CTA = () => {
   return (
@@ -7,10 +7,10 @@ const CTA = () => {
       <div className="cta-gradient"></div>
       <img src={CTAImg} alt="" />
       <div className="box-lg">
-        <div className="cta-content">
+        {/* <div className="cta-content">
           <h4 className="font">Do you want to give a gift to a friend?</h4>
           <button className="main-btn">Get Started</button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Hotel1 from "../assets/img/hotel1.png";
 import Hotel2 from "../assets/img/hotel2.jpg";
 import Hotel3 from "../assets/img/hotel3.jpg";
@@ -14,12 +14,93 @@ import {
   BsGeoAlt,
 } from "react-icons/bs";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
+import { FreeMode, Navigation, Thumbs } from "swiper/modules";
+
 const Hotelcard = () => {
   const [activeImg, setActiveImg] = useState("1");
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
   return (
     <div className="rsr-flex-card">
       <div className="rsr-flex-left">
-        <div className="short-img-grid">
+        <div className="rsr-thumb-swiper">
+          <>
+            <Swiper
+              style={{
+                "--swiper-pagination-color": "#fff",
+                "--swiper-navigation-color": "#000",
+              }}
+              spaceBetween={10}
+              thumbs={{ swiper: thumbsSwiper }}
+              modules={[FreeMode, Thumbs]}
+              className="mySwiper2"
+            >
+              <SwiperSlide>
+                <img src={Hotel1} />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={Hotel2} />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={Hotel3} />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={Hotel4} />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={Hotel1} />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={Hotel2} />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={Hotel3} />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={Hotel4} />
+              </SwiperSlide>
+            </Swiper>
+            <Swiper
+              onSwiper={setThumbsSwiper}
+              spaceBetween={10}
+              slidesPerView={4}
+              freeMode={true}
+              watchSlidesProgress={true}
+              modules={[FreeMode, Navigation, Thumbs]}
+              className="mySwiperthumb"
+            >
+              <SwiperSlide>
+                <img src={Hotel1} />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={Hotel2} />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={Hotel3} />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={Hotel4} alt="" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={Hotel1} />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={Hotel2} />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={Hotel3} />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={Hotel4} alt="" />
+              </SwiperSlide>
+            </Swiper>
+          </>
+        </div>
+        {/* <div className="short-img-grid">
           <img
             className={activeImg == "1" ? "active-img" : null}
             onClick={() => {
@@ -57,7 +138,7 @@ const Hotelcard = () => {
         {activeImg == "1" ? <img src={Hotel1} alt="" /> : null}
         {activeImg == "2" ? <img src={Hotel2} alt="" /> : null}
         {activeImg == "3" ? <img src={Hotel3} alt="" /> : null}
-        {activeImg == "4" ? <img src={Hotel4} alt="" /> : null}
+        {activeImg == "4" ? <img src={Hotel4} alt="" /> : null} */}
       </div>
       {/* <div className="rsr-mob-top-box">
         <div className="rsr-mob-card-img">
@@ -152,7 +233,7 @@ const Hotelcard = () => {
               Animali1
             </div>
           </span>
-          <span>
+          <span className="custom-tooltip">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="25"
@@ -167,6 +248,11 @@ const Hotelcard = () => {
                 fill="#26529C"
               />
             </svg>
+            <div className="tooltip-text">
+              {" "}
+              <div className="arrow-up"></div>
+              Animali2
+            </div>
           </span>
           <span>
             <svg

@@ -1,6 +1,9 @@
 .search-text-box {
   width: 100%;
   margin: 3rem 0;
+  position: sticky;
+  top: 3%;
+  z-index: 9999;
 }
 .search-grid {
   width: max-content;
