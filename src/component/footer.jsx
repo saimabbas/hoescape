@@ -16,7 +16,7 @@ const footer = () => {
       <div className="box-lg">
         <div className="footer-content">
           <div className="footer-grid">
-            <div className="footer-grid-content">
+            <div className="footer-grid-content fgc-box1">
               <img src={FLogo} alt="" />
               <p>
                 Founded in 1998, CozyStay Lodge is a luxury boutique hotel in
@@ -32,7 +32,7 @@ const footer = () => {
                 <FaInstagram />
               </div>
             </div>
-            <div className="footer-grid-content">
+            <div className="footer-grid-content fgc-box2">
               <div className="fgc-middle-top">
                 <h5 className="font">Reach Out</h5>
                 <Link to="#">Email: info@cozystay.com</Link>
@@ -71,7 +71,7 @@ const footer = () => {
                 </div>
               </div>
             </div>
-            <div className="footer-grid-content">
+            <div className="footer-grid-content fgc-box3">
               <div className="fgc-middle-top">
                 <h5 className="font">Navigate</h5>
                 <Link to="#">Accommodations</Link>

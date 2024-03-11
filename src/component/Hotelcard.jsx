@@ -43,31 +43,31 @@ const Hotelcard = () => {
                 <img src={Hotel1} />
               </SwiperSlide>
               <SwiperSlide>
-                <img src={Hotel2} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={Hotel3} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={Hotel4} />
+                <img src={Hotel1} />
               </SwiperSlide>
               <SwiperSlide>
                 <img src={Hotel1} />
               </SwiperSlide>
               <SwiperSlide>
-                <img src={Hotel2} />
+                <img src={Hotel1} />
               </SwiperSlide>
               <SwiperSlide>
-                <img src={Hotel3} />
+                <img src={Hotel1} />
               </SwiperSlide>
               <SwiperSlide>
-                <img src={Hotel4} />
+                <img src={Hotel1} />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={Hotel1} />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={Hotel1} />
               </SwiperSlide>
             </Swiper>
             <Swiper
               onSwiper={setThumbsSwiper}
               spaceBetween={10}
-              slidesPerView={4}
+              slidesPerView={4.25}
               freeMode={true}
               watchSlidesProgress={true}
               modules={[FreeMode, Navigation, Thumbs]}
@@ -100,47 +100,8 @@ const Hotelcard = () => {
             </Swiper>
           </>
         </div>
-        {/* <div className="short-img-grid">
-          <img
-            className={activeImg == "1" ? "active-img" : null}
-            onClick={() => {
-              setActiveImg("1");
-            }}
-            src={HotelMini1}
-            alt=""
-          />
-          <img
-            className={activeImg == "2" ? "active-img" : null}
-            onClick={() => {
-              setActiveImg("2");
-            }}
-            src={HotelMini2}
-            alt=""
-          />
-          <img
-            className={activeImg == "3" ? "active-img" : null}
-            onClick={() => {
-              setActiveImg("3");
-            }}
-            src={HotelMini3}
-            alt=""
-          />
-          <img
-            className={activeImg == "4" ? "active-img" : null}
-            onClick={() => {
-              setActiveImg("4");
-            }}
-            src={HotelMini4}
-            alt=""
-          />
-        </div>
-
-        {activeImg == "1" ? <img src={Hotel1} alt="" /> : null}
-        {activeImg == "2" ? <img src={Hotel2} alt="" /> : null}
-        {activeImg == "3" ? <img src={Hotel3} alt="" /> : null}
-        {activeImg == "4" ? <img src={Hotel4} alt="" /> : null} */}
       </div>
-      {/* <div className="rsr-mob-top-box">
+      <div className="rsr-mob-top-box">
         <div className="rsr-mob-card-img">
           <img src={Hotel1} alt="" />
         </div>
@@ -155,15 +116,16 @@ const Hotelcard = () => {
           </div>
           <h5>
             <BsGeoAlt />
-            Veneto, Cortina d’Ampezzo
+            Sonnino, Trentino
           </h5>
           <div className="rsrf-badge">
             <span>Luxury</span>
             <span>Comfort</span>
             <span>Business Friendly</span>
           </div>
+          <h4>Vedi Descrizione Hotel</h4>
         </div>
-      </div> */}
+      </div>
       <div className="rsr-flex-right">
         <div className="rsrf-badge">
           <span>Luxury</span>
@@ -254,7 +216,7 @@ const Hotelcard = () => {
               Animali2
             </div>
           </span>
-          <span>
+          <span className="custom-tooltip">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="21"
@@ -267,8 +229,13 @@ const Hotelcard = () => {
                 fill="#26529C"
               />
             </svg>
+            <div className="tooltip-text">
+              {" "}
+              <div className="arrow-up"></div>
+              Animali3
+            </div>
           </span>
-          <span>
+          <span className="custom-tooltip">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="19"
@@ -281,8 +248,13 @@ const Hotelcard = () => {
                 fill="#26529C"
               />
             </svg>
+            <div className="tooltip-text">
+              {" "}
+              <div className="arrow-up"></div>
+              Animali4
+            </div>
           </span>
-          <span>
+          <span className="custom-tooltip">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="25"
@@ -297,8 +269,13 @@ const Hotelcard = () => {
                 fill="#26529C"
               />
             </svg>
+            <div className="tooltip-text">
+              {" "}
+              <div className="arrow-up"></div>
+              Animali4
+            </div>
           </span>
-          <span>
+          <span className="custom-tooltip">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="21"
@@ -311,8 +288,13 @@ const Hotelcard = () => {
                 fill="#26529C"
               />
             </svg>
+            <div className="tooltip-text">
+              {" "}
+              <div className="arrow-up"></div>
+              Animali4
+            </div>
           </span>
-          <span>
+          <span className="custom-tooltip">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="19"
@@ -325,8 +307,13 @@ const Hotelcard = () => {
                 fill="#26529C"
               />
             </svg>
+            <div className="tooltip-text">
+              {" "}
+              <div className="arrow-up"></div>
+              Animali4
+            </div>
           </span>
-          <span>
+          <span className="custom-tooltip">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="25"
@@ -341,6 +328,11 @@ const Hotelcard = () => {
                 fill="#26529C"
               />
             </svg>
+            <div className="tooltip-text">
+              {" "}
+              <div className="arrow-up"></div>
+              Animali4
+            </div>
           </span>
         </div>
         <h6>

@@ -58,6 +58,7 @@ const Searchbar = () => {
     setIsCheckOutBoxVisible(false);
     setIsDateBoxVisible(false);
     setIsWhoBoxVisible(false);
+    setActiveInput("");
     whereInputRef.current.focus();
   };
   let handleWho = () => {
@@ -65,6 +66,7 @@ const Searchbar = () => {
     setIsDateBoxVisible(false);
     setIsCheckOutBoxVisible(false);
     setIsWhereBoxVisible(false);
+    setActiveInput("");
     setIsCheckInBoxVisible(false);
   };
 

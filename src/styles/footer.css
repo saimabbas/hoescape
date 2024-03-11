@@ -12,10 +12,22 @@ footer {
   justify-content: flex-start;
   gap: 2rem;
 }
+.footer-grid-content.fgc-box1 {
+  width: 25%;
+}
+.footer-grid-content.fgc-box2 {
+  width: 40%;
+}
+.footer-grid-content.fgc-box3 {
+  width: max-content;
+}
 .footer-grid {
-  display: grid;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  /* display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  grid-gap: 20rem;
+  grid-gap: 20rem; */
   width: 100%;
   padding: 5rem 0;
 }

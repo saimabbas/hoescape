@@ -492,9 +492,15 @@ img {
 }
 .rsr-thumb-swiper {
   position: relative;
+  width: 100%;
+  height: 100%;
+}
+.mySwiper2 {
+  height: 100%;
 }
 .mySwiperthumb {
   background-color: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(20px);
   border-radius: 1rem;
   padding: 1.25rem !important;
   position: absolute !important;
@@ -934,22 +940,18 @@ img {
   }
 }
 @media only screen and (max-width: 1300px) {
-  /* .res-grid-cont {
+  .res-grid-cont {
     display: grid;
-    grid-template-columns: 300px 1fr;
-  } */
-}
-@media only screen and (max-width: 1200px) {
-  /* .rsr-flex-card {
+    grid-template-columns: 350px 1fr;
+  }
+  .rsr-flex-card {
     grid-template-columns: 1fr;
   }
-  .rsr-flex-left img {
-    border-radius: 1.5rem;
-    height: 350px;
+  .rsr-flex-left {
+    display: none;
   }
-  .short-img-grid img {
-    height: auto !important;
-  } */
+}
+@media only screen and (max-width: 1200px) {
 }
 @media only screen and (max-width: 1000px) {
   .box {
@@ -963,4 +965,82 @@ img {
   .mobile-menu {
     padding: 2rem;
   }
+}
+
+.rsr-mob-top-box {
+  display: none;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.rsr-mob-card-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  border-radius: 1rem;
+}
+.rsr-mob-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 1rem;
+}
+.rsr-mob-card-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.rsr-mob-card-content h1 {
+  color: var(--black);
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin: 0;
+}
+.rsr-mob-card-content .rsrf-star {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+}
+.rsr-mob-card-content .rsrf-star svg {
+  font-size: 1.35rem;
+  color: #faaf05;
+}
+.rsr-mob-card-content h5 {
+  color: var(--main);
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+}
+.rsr-mob-card-content h5 svg {
+  font-size: 1.5rem;
+  color: var(--main);
+}
+.rsr-mob-card-content .rsrf-badge {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.rsr-mob-card-content .rsrf-badge span {
+  color: var(--main);
+  background-color: #c2cfe3;
+  border-radius: 1000px;
+  padding: 0.15rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+}
+.rsr-mob-card-content h4 {
+  color: var(--black);
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin: 1rem 0 0 0;
 }
