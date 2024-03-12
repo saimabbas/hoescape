@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import map from "./assets/img/map.png";
-import FLogo from "./assets/img/footer-logo.png";
+import Adult from "./assets/img/adult-emoji.svg";
 import {
   BsChevronDown,
   BsChevronUp,
@@ -18,6 +18,9 @@ import Footer from "./component/footer";
 import Searchbar from "./component/Searchbar";
 import CTA from "./component/CTA";
 import Topbar from "./component/Topbar";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
 
 const Page = () => {
   const [isAccor1Visible, setAccor1Visible] = useState(true);
@@ -62,6 +65,70 @@ const Page = () => {
         <Header />
         {/* SEARCH BOX  */}
         <Searchbar />
+        {/* MOBILE MAP AND ACCORDIAN OPTION  */}
+        <div className="mob-map-opt-swiper">
+          <div className="box-lg">
+            <div className="mob-emoji-opt">
+              <div className="meo-box">
+                <img src={Adult} alt="" />
+                <h6>2 adulti</h6>
+              </div>
+              <div className="meo-box">
+                <img src={Adult} alt="" />
+                <h6>2 adulti</h6>
+              </div>
+              <div className="meo-box">
+                <img src={Adult} alt="" />
+                <h6>2 adulti</h6>
+              </div>
+            </div>
+          </div>
+          <div className="rgl-map-box">
+            <img src={map} alt="" />
+            <button className="map-btn">Vedi Mappa</button>
+          </div>
+          <div className="box-lg">
+            <div className="mm-opt-swiper">
+              <Swiper className="mySwiper" slidesPerView={3} spaceBetween={20}>
+                <SwiperSlide>
+                  <div className="mmo-swiper-content">
+                    <span>Filtra per Stelle</span> <BsChevronDown />
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className="mmo-swiper-content">
+                    <span>servizi</span> <BsChevronDown />
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className="mmo-swiper-content">
+                    <span>località</span> <BsChevronDown />
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className="mmo-swiper-content">
+                    <span>Filtra per Stelle</span> <BsChevronDown />
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className="mmo-swiper-content">
+                    <span>servizi</span> <BsChevronDown />
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className="mmo-swiper-content">
+                    <span>località</span> <BsChevronDown />
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className="mmo-swiper-content">
+                    <span>Filtra per Stelle</span> <BsChevronDown />
+                  </div>
+                </SwiperSlide>
+              </Swiper>
+            </div>
+          </div>
+        </div>
         {/* LOGIN BUTTON */}
         <div className="login-opt-box">
           <div className="box-lg">

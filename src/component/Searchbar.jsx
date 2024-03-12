@@ -3,6 +3,7 @@ import {
   BsBuilding,
   BsCalendar4Event,
   BsDashCircle,
+  BsFilter,
   BsGeoAlt,
   BsPlusCircle,
   BsSearch,
@@ -214,10 +215,6 @@ const Searchbar = () => {
 
           <div className="search-grid-card">
             <h6
-              // onClick={() => {
-              //   setIsDateBoxVisible(true);
-              //   setActiveInput("checkIn");
-              // }}
               onClick={() => {
                 handleDate();
                 setActiveInput("checkIn");
@@ -673,6 +670,18 @@ const Searchbar = () => {
               </div>
             </div>
           )}
+        </div>
+        <div className="mob-search-grid">
+          <div className="mob-search-input">
+            <BsSearch />
+            <input type="text" />
+          </div>
+          <div className="mob-filter-icon">
+            <BsFilter />
+            <h6>
+              Filtri <span>(22)</span>
+            </h6>
+          </div>
         </div>
       </div>
     </div>

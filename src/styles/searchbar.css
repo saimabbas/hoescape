@@ -642,3 +642,83 @@
 .react-datepicker__day--keyboard-selected {
   font-weight: 400 !important;
 }
+
+/* MOBILE SEARCH BAR  */
+.mob-search-grid {
+  display: none;
+  grid-template-columns: 1fr max-content;
+  grid-gap: 2rem;
+}
+.mob-search-input {
+  background-color: #f5f5f5;
+  border-radius: 1000px;
+  padding: 2.5rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+.mob-search-input svg {
+  font-size: 2.5rem;
+  color: var(--black);
+}
+.mob-search-input input {
+  border: unset;
+  font-size: 1.4rem;
+  color: var(--main);
+  font-weight: 500;
+  margin: 0;
+  background-color: transparent;
+  padding: 0;
+}
+.mob-search-input input:focus {
+  outline: unset;
+  border: unset;
+  box-shadow: unset;
+}
+.mob-search-input input::placeholder {
+  font-size: 1.4rem;
+  color: #b8b8b8;
+  font-weight: 500;
+}
+.mob-filter-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+.mob-filter-icon svg {
+  font-size: 3.5rem;
+  color: var(--main);
+}
+.mob-filter-icon h6 {
+  font-size: 1.4rem;
+  color: var(--main);
+  font-weight: 500;
+  margin: 0;
+}
+.mob-filter-icon h6 span {
+  font-size: 0.95rem;
+  color: var(--main);
+  font-weight: 400;
+  margin: 0;
+}
+@media only screen and (max-width: 1200px) {
+  .search-grid {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .search-grid h6 {
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .search-grid {
+    display: none;
+  }
+  .mob-search-grid {
+    display: grid !important;
+  }
+}

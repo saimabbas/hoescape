@@ -922,6 +922,166 @@ img {
   color: var(--black);
 }
 
+/* HOTEL MOB CARD  */
+.rsr-mob-top-box {
+  display: none;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.rsr-mob-card-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  border-radius: 1rem;
+}
+.rsr-mob-card-img img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+.rsr-mob-card-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 2rem 1rem 1rem;
+  width: 50%;
+}
+.rsr-mob-card-content .rsrf-badge {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.rsr-mob-card-content .rsrf-badge span {
+  font-size: 1.15rem;
+  color: var(--main);
+  font-weight: 600;
+  background-color: rgba(38, 82, 156, 0.278);
+  border-radius: 1000px;
+  padding: 0.25rem 2.5rem;
+}
+.rsr-mob-card-content h1 {
+  color: var(--black);
+  font-weight: 600;
+  font-size: 2.2rem;
+  margin: 0;
+}
+.rsr-mob-card-content .rsrf-star {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+}
+.rsr-mob-card-content .rsrf-star svg {
+  font-size: 1.65rem;
+  color: #faaf05;
+}
+.rsr-mob-card-content h5 {
+  color: var(--main);
+  font-weight: 600;
+  font-size: 2rem;
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+}
+.rsr-mob-card-content h5 svg {
+  font-size: 1.75rem;
+  color: var(--main);
+}
+.rsr-mob-card-content h4 {
+  color: var(--black);
+  font-weight: 600;
+  font-size: 2rem;
+  margin: 1rem 0 0 0;
+}
+.rsr-mob-card-content p {
+  color: var(--black);
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+/* MOBILE MAP AND ACCORDIAN OPTION  */
+.mob-map-opt-swiper {
+  width: 100%;
+  display: none;
+}
+.mob-emoji-opt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.meo-box {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.25rem;
+}
+.meo-box img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+.meo-box h6 {
+  font-size: 1.25rem;
+  color: var(--black);
+  font-weight: 400;
+  margin: 0;
+}
+
+.mob-map-opt-swiper .rgl-map-box {
+  width: 100%;
+  position: relative;
+  padding: 2rem 0;
+  border: unset;
+}
+.mob-map-opt-swiper .rgl-map-box img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+.mob-map-opt-swiper .rgl-map-box button {
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--black);
+  font-size: 1.35rem;
+  font-weight: 500;
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  border: unset;
+}
+.mm-opt-swiper {
+  width: 100%;
+}
+.mmo-swiper-content {
+  border: 1px solid #d1d1d1;
+  border-radius: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 1.5rem;
+}
+.mmo-swiper-content span {
+  font-size: 1.5rem;
+  color: #31353b;
+  font-weight: 400;
+  margin: 0;
+}
 /* RESPONSIVENESS */
 
 @media only screen and (max-width: 1400px) {
@@ -950,12 +1110,103 @@ img {
   .rsr-flex-left {
     display: none;
   }
+  .rsr-mob-top-box {
+    display: flex !important;
+  }
+  .rsr-flex-right .mob-none {
+    display: none;
+  }
+  .rsr-flex-right {
+    border: unset;
+  }
+  .rsr-flex-card {
+    border: 1px solid #d4d4d4;
+    border-radius: 0.75rem;
+  }
 }
 @media only screen and (max-width: 1200px) {
+  .box {
+    padding: 0 5rem;
+  }
+}
+@media only screen and (max-width: 1150px) {
+  .res-grid-cont {
+    grid-template-columns: 300px 1fr;
+  }
 }
 @media only screen and (max-width: 1000px) {
   .box {
     padding: 0 2rem;
+  }
+  .rsr-mob-card-content p {
+    display: none;
+  }
+  .rsr-mob-card-img img {
+    height: 250px !important;
+  }
+  .rsr-mid-heading p {
+    font-size: 1.75rem;
+  }
+  .rsr-mob-card-content h4 {
+    font-size: 1.65rem;
+  }
+  .rsr-mob-card-content h5 {
+    font-size: 1.75rem;
+  }
+  .rsr-opt h4 {
+    font-size: 1.5rem;
+  }
+  .rsr-opt h4 select {
+    font-size: 1.5rem;
+  }
+  .rsr-flex-right h6 {
+    font-size: 1.6rem;
+  }
+  .rsrf-tot-left h2 {
+    font-size: 1.6rem;
+  }
+  .rsrf-tot-left h4 {
+    font-size: 1.8rem;
+  }
+  .rgl-acco-head h6 {
+    font-size: 1.8rem;
+  }
+  .check-opt-num div p {
+    font-size: 1.3rem;
+  }
+  .rating-card {
+    height: 45px;
+  }
+  .rating-card label {
+    font-size: 1.5rem;
+  }
+  .rating-card label svg {
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (max-width: 950px) {
+  .rsr-mob-card-content h1 {
+    font-size: 1.85rem;
+  }
+  .login-opt-cont p {
+    font-size: 1.65rem;
+  }
+  .login-opt-cont .sign-btn {
+    font-size: 1.65rem;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .res-grid-cont {
+    grid-template-columns: 1fr;
+  }
+  .res-grid-left {
+    display: none;
+  }
+  .rsr-opt {
+    display: none;
+  }
+  .mob-map-opt-swiper {
+    display: block;
   }
 }
 @media only screen and (max-width: 650px) {
@@ -965,82 +1216,4 @@ img {
   .mobile-menu {
     padding: 2rem;
   }
-}
-
-.rsr-mob-top-box {
-  display: none;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
-}
-.rsr-mob-card-img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-  border-radius: 1rem;
-}
-.rsr-mob-card-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 1rem;
-}
-.rsr-mob-card-content {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-.rsr-mob-card-content h1 {
-  color: var(--black);
-  font-weight: 600;
-  font-size: 1.8rem;
-  margin: 0;
-}
-.rsr-mob-card-content .rsrf-star {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 0.5rem;
-}
-.rsr-mob-card-content .rsrf-star svg {
-  font-size: 1.35rem;
-  color: #faaf05;
-}
-.rsr-mob-card-content h5 {
-  color: var(--main);
-  font-weight: 600;
-  font-size: 1.5rem;
-  margin: 0;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 0.5rem;
-}
-.rsr-mob-card-content h5 svg {
-  font-size: 1.5rem;
-  color: var(--main);
-}
-.rsr-mob-card-content .rsrf-badge {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 0.5rem;
-}
-.rsr-mob-card-content .rsrf-badge span {
-  color: var(--main);
-  background-color: #c2cfe3;
-  border-radius: 1000px;
-  padding: 0.15rem 0.75rem;
-  font-size: 1rem;
-  font-weight: 400;
-}
-.rsr-mob-card-content h4 {
-  color: var(--black);
-  font-weight: 600;
-  font-size: 1.5rem;
-  margin: 1rem 0 0 0;
 }

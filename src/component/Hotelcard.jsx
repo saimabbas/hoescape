@@ -103,7 +103,80 @@ const Hotelcard = () => {
       </div>
       <div className="rsr-mob-top-box">
         <div className="rsr-mob-card-img">
-          <img src={Hotel1} alt="" />
+          <div className="rsr-thumb-swiper">
+            {/* <>
+              <Swiper
+                style={{
+                  "--swiper-pagination-color": "#fff",
+                  "--swiper-navigation-color": "#000",
+                }}
+                spaceBetween={10}
+                thumbs={{ swiper: thumbsSwiper }}
+                modules={[FreeMode, Thumbs]}
+                className="mySwiper2"
+              >
+                <SwiperSlide>
+                  <img src={Hotel1} />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img src={Hotel1} />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img src={Hotel1} />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img src={Hotel1} />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img src={Hotel1} />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img src={Hotel1} />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img src={Hotel1} />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img src={Hotel1} />
+                </SwiperSlide>
+              </Swiper>
+              <Swiper
+                onSwiper={setThumbsSwiper}
+                spaceBetween={10}
+                slidesPerView={4.25}
+                freeMode={true}
+                watchSlidesProgress={true}
+                modules={[FreeMode, Navigation, Thumbs]}
+                className="mySwiperthumb"
+              >
+                <SwiperSlide>
+                  <img src={Hotel1} />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img src={Hotel2} />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img src={Hotel3} />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img src={Hotel4} alt="" />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img src={Hotel1} />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img src={Hotel2} />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img src={Hotel3} />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img src={Hotel4} alt="" />
+                </SwiperSlide>
+              </Swiper>
+            </> */}
+            <img src={Hotel1} alt="" />
+          </div>
         </div>
         <div className="rsr-mob-card-content">
           <h1>Hotel Gran Paradiso Terme</h1>
@@ -124,24 +197,30 @@ const Hotelcard = () => {
             <span>Business Friendly</span>
           </div>
           <h4>Vedi Descrizione Hotel</h4>
+          <p>
+            Troverai ad accoglierti all'ingresso dell 'Av Club Terme Colella un
+            pergolato ricco di piante e fiori mediterranei. La struttura, simile
+            per estetica alle ville ischitane, e' un luogo familiare ed
+            ospitale.
+          </p>
         </div>
       </div>
       <div className="rsr-flex-right">
-        <div className="rsrf-badge">
+        <div className="rsrf-badge mob-none">
           <span>Luxury</span>
           <span>Comfort</span>
           <span>Business Friendly</span>
         </div>
         <div className="rsrf-content">
-          <h1>AV Isola Verde Hotel Thermal Spa</h1>
-          <div className="rsrf-star">
+          <h1 className="mob-none">AV Isola Verde Hotel Thermal Spa</h1>
+          <div className="rsrf-star mob-none">
             <BsFillStarFill />
             <BsFillStarFill />
             <BsFillStarFill />
             <BsFillStarFill />
             <BsFillStarFill />
           </div>
-          <h5>
+          <h5 className="mob-none">
             <BsGeoAlt />
             Veneto, Cortina d’Ampezzo
           </h5>
