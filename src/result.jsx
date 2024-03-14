@@ -21,6 +21,7 @@ import Topbar from "./component/Topbar";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
+import HotelCardSkeleton from "./component/HotelCardSkeleton";
 
 const Page = () => {
   const [isAccor1Visible, setAccor1Visible] = useState(true);
@@ -31,6 +32,7 @@ const Page = () => {
   const [isAccor6Visible, setAccor6Visible] = useState(true);
   const [showCheckboxBox, setShowCheckboxBox] = useState(false);
   const [showCheckboxBox1, setShowCheckboxBox1] = useState(false);
+  const [numberOfCardsToShow, setNumberOfCardsToShow] = useState(0);
 
   const toggleAccor1 = () => {
     setAccor1Visible(!isAccor1Visible);
@@ -555,7 +557,15 @@ const Page = () => {
                     <p>Assistenza HoEscape telefonica 7 giorni su 7</p>
                   </div>
                   <Hotelcard />
-                  <div className="rsr-mid-heading">
+                  {Array.from({ length: numberOfCardsToShow }, (_, index) => (
+                    <HotelCardSkeleton key={index} />
+                  ))}
+                  <div
+                    className="rsr-mid-heading"
+                    onClick={() => {
+                      setNumberOfCardsToShow((prevCount) => prevCount + 1);
+                    }}
+                  >
                     <p>Carica Altri 25 Hotel</p>
                   </div>
                 </div>

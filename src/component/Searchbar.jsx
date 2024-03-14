@@ -116,31 +116,18 @@ const Searchbar = () => {
   };
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  /*  const onChange = (dates) => {
-    const [start, end] = dates;
-    setStartDate(start);
-    setEndDate(end);
-  }; */
 
   const [isDateBoxVisible, setIsDateBoxVisible] = useState(false);
   const [dates, setDates] = useState([null, null]);
-  // const [startDate, endDate] = dates;
-  // const [activeTab, setActiveTab] = useState("dates");
-  // const divRef = useRef(null);
 
   const onChange = (dates) => {
     const [start, end] = dates;
     setStartDate(start);
     setEndDate(end);
     if (start && !end) {
-      // Automatically switch to checkout after selecting start date
       setActiveInput("checkOut");
     }
   };
-
-  /* const handleTabClick = (tabName) => {
-    setActiveTab(tabName);
-  }; */
 
   const [activeInput, setActiveInput] = useState(null);
 

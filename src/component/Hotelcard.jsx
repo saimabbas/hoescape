@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Hotel1 from "../assets/img/hotel1.png";
 import Hotel2 from "../assets/img/hotel2.jpg";
 import Hotel3 from "../assets/img/hotel3.jpg";
@@ -19,11 +19,11 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-import { FreeMode, Navigation, Thumbs } from "swiper/modules";
+import { FreeMode, Navigation, Thumbs, Controller } from "swiper/modules";
 
 const Hotelcard = () => {
-  const [activeImg, setActiveImg] = useState("1");
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+
   return (
     <div className="rsr-flex-card">
       <div className="rsr-flex-left">
@@ -36,7 +36,7 @@ const Hotelcard = () => {
               }}
               spaceBetween={10}
               thumbs={{ swiper: thumbsSwiper }}
-              modules={[FreeMode, Thumbs]}
+              modules={[FreeMode, Thumbs, Controller]}
               className="mySwiper2"
             >
               <SwiperSlide>
@@ -70,33 +70,23 @@ const Hotelcard = () => {
               slidesPerView={4.25}
               freeMode={true}
               watchSlidesProgress={true}
-              modules={[FreeMode, Navigation, Thumbs]}
+              modules={[FreeMode, Navigation, Thumbs, Controller]}
               className="mySwiperthumb"
             >
-              <SwiperSlide>
-                <img src={Hotel1} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={Hotel2} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={Hotel3} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={Hotel4} alt="" />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={Hotel1} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={Hotel2} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={Hotel3} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={Hotel4} alt="" />
-              </SwiperSlide>
+              {[
+                Hotel1,
+                Hotel2,
+                Hotel3,
+                Hotel4,
+                Hotel1,
+                Hotel2,
+                Hotel3,
+                Hotel4,
+              ].map((hotelImage, index) => (
+                <SwiperSlide key={`thumbnail-${index}`}>
+                  <img src={hotelImage} alt={`Thumbnail ${index}`} />
+                </SwiperSlide>
+              ))}
             </Swiper>
           </>
         </div>
