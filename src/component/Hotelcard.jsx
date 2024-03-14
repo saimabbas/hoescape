@@ -10,6 +10,8 @@ import HotelMini4 from "../assets/img/hotelmini4.png";
 import {
   BsCalendar3,
   BsCheckCircleFill,
+  BsChevronLeft,
+  BsChevronRight,
   BsFillStarFill,
   BsGeoAlt,
 } from "react-icons/bs";
@@ -28,67 +30,82 @@ const Hotelcard = () => {
     <div className="rsr-flex-card">
       <div className="rsr-flex-left">
         <div className="rsr-thumb-swiper">
-          <>
-            <Swiper
-              style={{
-                "--swiper-pagination-color": "#fff",
-                "--swiper-navigation-color": "#000",
-              }}
-              spaceBetween={10}
-              thumbs={{ swiper: thumbsSwiper }}
-              modules={[FreeMode, Thumbs, Controller]}
-              className="mySwiper2"
-            >
-              <SwiperSlide>
-                <img src={Hotel1} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={Hotel1} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={Hotel1} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={Hotel1} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={Hotel1} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={Hotel1} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={Hotel1} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={Hotel1} />
-              </SwiperSlide>
-            </Swiper>
-            <Swiper
-              onSwiper={setThumbsSwiper}
-              spaceBetween={10}
-              slidesPerView={4.25}
-              freeMode={true}
-              watchSlidesProgress={true}
-              modules={[FreeMode, Navigation, Thumbs, Controller]}
-              className="mySwiperthumb"
-            >
-              {[
-                Hotel1,
-                Hotel2,
-                Hotel3,
-                Hotel4,
-                Hotel1,
-                Hotel2,
-                Hotel3,
-                Hotel4,
-              ].map((hotelImage, index) => (
-                <SwiperSlide key={`thumbnail-${index}`}>
-                  <img src={hotelImage} alt={`Thumbnail ${index}`} />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </>
+          <Swiper
+            spaceBetween={10}
+            thumbs={{ swiper: thumbsSwiper }}
+            modules={[FreeMode, Thumbs, Controller]}
+            className="mySwiper2"
+          >
+            <SwiperSlide>
+              <img src={Hotel1} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={Hotel1} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={Hotel1} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={Hotel1} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={Hotel1} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={Hotel1} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={Hotel1} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={Hotel1} />
+            </SwiperSlide>
+          </Swiper>
+
+          <Swiper
+            onSwiper={setThumbsSwiper}
+            spaceBetween={10}
+            slidesPerView={4}
+            freeMode={true}
+            className="mySwiperthumb"
+            watchSlidesProgress={true}
+            modules={[FreeMode, Navigation, Thumbs, Controller]}
+            navigation={{
+              prevEl: ".card-left",
+              nextEl: ".card-right",
+            }}
+          >
+            <SwiperSlide>
+              <img src={Hotel1} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={Hotel1} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={Hotel1} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={Hotel1} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={Hotel1} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={Hotel1} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={Hotel1} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={Hotel1} />
+            </SwiperSlide>
+          </Swiper>
+          <div className="card-left">
+            <BsChevronLeft />
+          </div>
+          <div className="card-right">
+            <BsChevronRight />
+          </div>
         </div>
       </div>
       <div className="rsr-mob-top-box">

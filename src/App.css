@@ -70,7 +70,7 @@ img {
 /* LOGIN BOX  */
 .login-opt-box {
   width: 100%;
-  margin: 2rem 0;
+  margin: 0 0 2rem 0;
 }
 .login-opt-cont {
   background-color: var(--main);
@@ -525,6 +525,40 @@ img {
   width: 100%;
   height: 100%;
 }
+.card-left {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.65rem;
+  background-color: var(--white);
+  color: var(--black);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translate(100%, -150%);
+  z-index: 1000;
+  cursor: pointer;
+}
+.card-right {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.65rem;
+  background-color: var(--white);
+  color: var(--black);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(-100%, -150%);
+  z-index: 1000;
+  cursor: pointer;
+}
 .mySwiper2 {
   height: 100%;
 }
@@ -532,12 +566,14 @@ img {
   background-color: rgba(255, 255, 255, 0.16);
   backdrop-filter: blur(20px);
   border-radius: 1rem;
-  padding: 1.25rem !important;
+  padding: 1rem !important;
   position: absolute !important;
-  bottom: 4%;
-  left: 10%;
+  bottom: 2rem;
+  left: 50%;
+  transform: translate(-50%, 0);
   cursor: pointer;
-  width: 78%;
+  width: 80%;
+  z-index: 1000;
 }
 .mySwiperthumb img {
   width: 60px;
@@ -1247,4 +1283,7 @@ img {
   .mobile-menu {
     padding: 2rem;
   }
+}
+.swiper-slide.swiper-slide-thumb-active img {
+  border: 2px solid var(--white);
 }
